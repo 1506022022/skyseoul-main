@@ -47,12 +47,12 @@ public class LampGenerator : Generator<LampGenerator>
         death.Skill = Skill;
         death.SkillOffset = SkillOffset;
         death.SkillRotation = SkillRotation;
-        FieldInfo fieldInfo = death.GetType().GetField("animator", BindingFlags.Public | BindingFlags.NonPublic |BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+        FieldInfo fieldInfo = death.GetType().GetField("animator", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
         fieldInfo?.SetValue(death, animator);
     }
 
     protected override bool IsValid()
     {
-        return Model != null && Skill != null && Behavior != null && (Animator != null || Model.GetComponent<Animator>()?.runtimeAnimatorController != null);
+        return Model != null && Skill != null && Behavior != null && (Animator != null || Model.TryGetComponent<Animator>(out var animator) && animator.runtimeAnimatorController != null);
     }
 }

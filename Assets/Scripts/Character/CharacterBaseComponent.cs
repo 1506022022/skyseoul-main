@@ -98,6 +98,7 @@ namespace Character
                 else
                 {
                     animator.SetBool("IsMove", false);
+                    animator.SetFloat("MoveSpeed", 0f);
                     walkStrength.SetStrength(0f);
                 }
             }

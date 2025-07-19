@@ -5,40 +5,40 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -2631549693746845723
-    second: 01_Zombie_Idle_01
+    second: Zombie@Idle01
   - first:
       74: 3117094022991695945
-    second: 02_Zombie_Idle_02
+    second: Zombie@Idle02
   - first:
       74: -4555492631150239289
-    second: 03_Zombie_Idle_03
+    second: Zombie@Idle03
   - first:
       74: 4822531237575503697
-    second: 04_Zombie_Idle_04
+    second: Zombie@Idle04
   - first:
       74: 2196674332823598430
-    second: 05_Zombie_Idle_05
+    second: Zombie@Idle05
   - first:
       74: -5979656921067122393
-    second: 06_Zombie_Idle_06
+    second: Zombie@Idle06
   - first:
       74: -4993341447650121953
-    second: 07_Zombie_Idle_07
+    second: Zombie@Idle07
   - first:
       74: 8242219104054921035
-    second: 08_Zombie_Idle_08
+    second: Zombie@Idle08
   - first:
       74: -3944696332965505665
-    second: 09_Zombie_Idle_09
+    second: Zombie@Idle09
   - first:
       74: 8134361181989702929
     second: 10_Zombie_Idle_10
   - first:
       74: -4950329290538859751
-    second: 11_Zombie_Idle_11
+    second: Zombie@Idle11
   - first:
       74: -5208748569628320935
-    second: 12_Zombie_Idle_12
+    second: Zombie@Idle12
   - first:
       74: 4916193425782925467
     second: 13_Zombie_Hurdle_01
@@ -62,85 +62,85 @@ ModelImporter:
     second: 19_Zombie_Hurdle_05
   - first:
       74: -4449890223322073971
-    second: 20_Zombie_Hurdle_06
+    second: Zombie@Hurdle06
   - first:
       74: -4625593806320338509
     second: 21_Zombie_walking_01(InPlace)
   - first:
       74: 4146608163868035601
-    second: 21_Zombie_walking_01
+    second: Zombie@walking01
   - first:
       74: 2206607188211110182
-    second: 22_Zombie_walking_02(InPlace)
+    second: Zombie@walking02(InPlace)
   - first:
       74: -130780661452626207
-    second: 22_Zombie_walking_02
+    second: Zombie@walking02
   - first:
       74: 8761919859108154300
-    second: 23_Zombie_walking_03(InPlace)
+    second: Zombie@walking03(InPlace)
   - first:
       74: 285768429391538638
-    second: 23_Zombie_walking_03
+    second: Zombie@walking03
   - first:
       74: 2213184394852338827
-    second: 24_Zombie_walking_04(InPlace)
+    second: Zombie@walking04(InPlace)
   - first:
       74: 6950015815762231438
-    second: 24_Zombie_walking_04
+    second: Zombie@walking04
   - first:
       74: -2499248104562898604
-    second: 25_Zombie_walking_05(InPlace)
+    second: Zombie@walking05(InPlace)
   - first:
       74: -3443157141311583921
-    second: 25_Zombie_walking_05
+    second: Zombie@walking05
   - first:
       74: -5368532954417676009
-    second: 26_Zombie_walking_06(InPlace)
+    second: Zombie@walking06(InPlace)
   - first:
       74: 8641616546855362525
-    second: 26_Zombie_walking_06
+    second: Zombie@walking06
   - first:
       74: 4460264248994521899
-    second: 27_Zombie_walking_07(InPlace)
+    second: Zombie@walking07(InPlace)
   - first:
       74: -3226679393396408070
-    second: 27_Zombie_walking_07
+    second: Zombie@walking07
   - first:
       74: 7590320772604262646
     second: 28_Zombie_Run_01(InPlace)
   - first:
       74: 8385858168452017199
-    second: 28_Zombie_Run_01
+    second: Zombie@Run01
   - first:
       74: 5051014147175585028
-    second: 29_Zombie_Run_02(InPlace)
+    second: Zombie@Run02(InPlace)
   - first:
       74: -6846269664671418468
-    second: 29_Zombie_Run_02
+    second: Zombie@Run02
   - first:
       74: 3803564377115342486
-    second: 30_Zombie_Attack_Idle_01
+    second: Zombie@AttackIdle01
   - first:
       74: 8380663289210270238
-    second: 31_Zombie_walking_08(InPlace)
+    second: Zombie@walking08(InPlace)
   - first:
       74: -4083448313032219834
-    second: 31_Zombie_walking_08
+    second: Zombie@walking08
   - first:
       74: -2040951424562276966
-    second: 32_Zombie_Attack_Idle_02
+    second: Zombie@AttackIdle02
   - first:
       74: -5974803393432866662
     second: 33_Zombie_Attack_moving_01
   - first:
       74: 3167355815824659170
-    second: 34_Zombie_Attack_moving_02
+    second: Zombie@Attackmoving02
   - first:
       74: 8737004784425051846
-    second: 35_Zombie_Attack_moving_04
+    second: Zombie@Attackmoving04
   - first:
       74: -1452705274844665782
-    second: 36_Zombie_Attack_moving_05
+    second: Zombie@Attackmoving05
   - first:
       74: 7457790263283388085
     second: 38_Zombie_Attack_shot_01_a
@@ -161,7 +161,7 @@ ModelImporter:
     second: 43_Zombie_Shot_Down_04
   - first:
       74: 3740673754548359949
-    second: 44_Zombie_Shot_Down_05
+    second: Zombie@ShotDown05
   - first:
       74: 8352011776317300375
     second: 45_Zombie_Etc_01_a
@@ -170,7 +170,7 @@ ModelImporter:
     second: 46_Zombie_Etc_02_a
   - first:
       74: 4907888288436501523
-    second: 47_Zombie_Etc_03_a
+    second: Zombie@Etc03a
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -182,7 +182,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 1
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -190,7 +190,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -199,7 +199,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: 01_Zombie_Idle_01
+      name: Zombie@Idle01
       takeName: 01_Zombie_Idle_01
       internalID: -2631549693746845723
       firstFrame: 0
@@ -228,7 +228,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 02_Zombie_Idle_02
+      name: Zombie@Idle02
       takeName: 02_Zombie_Idle_02
       internalID: 3117094022991695945
       firstFrame: 0
@@ -257,7 +257,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 03_Zombie_Idle_03
+      name: Zombie@Idle03
       takeName: 03_Zombie_Idle_03
       internalID: -4555492631150239289
       firstFrame: 0
@@ -286,7 +286,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 04_Zombie_Idle_04
+      name: Zombie@Idle04
       takeName: 04_Zombie_Idle_04
       internalID: 4822531237575503697
       firstFrame: 0
@@ -315,7 +315,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 05_Zombie_Idle_05
+      name: Zombie@Idle05
       takeName: 05_Zombie_Idle_05
       internalID: 2196674332823598430
       firstFrame: 0
@@ -329,8 +329,8 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -344,7 +344,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 06_Zombie_Idle_06
+      name: Zombie@Idle06
       takeName: 06_Zombie_Idle_06
       internalID: -5979656921067122393
       firstFrame: 0
@@ -373,7 +373,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 07_Zombie_Idle_07
+      name: Zombie@Idle07
       takeName: 07_Zombie_Idle_07
       internalID: -4993341447650121953
       firstFrame: 0
@@ -402,7 +402,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 08_Zombie_Idle_08
+      name: Zombie@Idle08
       takeName: 08_Zombie_Idle_08
       internalID: 8242219104054921035
       firstFrame: 0
@@ -431,7 +431,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 09_Zombie_Idle_09
+      name: Zombie@Idle09
       takeName: 09_Zombie_Idle_09
       internalID: -3944696332965505665
       firstFrame: 0
@@ -460,7 +460,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 10_Zombie_Idle_10
+      name: Zombie@Idle10
       takeName: 10_Zombie_Idle_10
       internalID: 8134361181989702929
       firstFrame: 0
@@ -489,7 +489,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 11_Zombie_Idle_11
+      name: Zombie@Idle11
       takeName: 11_Zombie_Idle_11
       internalID: -4950329290538859751
       firstFrame: 0
@@ -518,7 +518,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 12_Zombie_Idle_12
+      name: Zombie@Idle12
       takeName: 12_Zombie_Idle_12
       internalID: -5208748569628320935
       firstFrame: 0
@@ -547,7 +547,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 13_Zombie_Hurdle_01
+      name: Zombie@Hurdle01
       takeName: 13_Zombie_Hurdle_01
       internalID: 4916193425782925467
       firstFrame: 0
@@ -576,7 +576,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 14_Zombie_Hurdle_03
+      name: Zombie@Hurdle03
       takeName: 14_Zombie_Hurdle_03
       internalID: -6464988598221412539
       firstFrame: 0
@@ -605,7 +605,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 15_Zombie_Hurdle_04
+      name: Zombie@Hurdle04
       takeName: 15_Zombie_Hurdle_04
       internalID: 6801315808258428238
       firstFrame: 0
@@ -634,7 +634,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 16_Zombie_Hurdle_01_b
+      name: Zombie@Hurdle01b
       takeName: 16_Zombie_Hurdle_01_b
       internalID: -3286233565894892580
       firstFrame: 0
@@ -663,7 +663,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 17_Zombie_Hurdle_01_c
+      name: Zombie@Hurdle01c
       takeName: 17_Zombie_Hurdle_01_c
       internalID: -5379166863239662578
       firstFrame: 0
@@ -692,7 +692,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 18_Zombie_Hurdle_02_a
+      name: Zombie@Hurdle02a
       takeName: 18_Zombie_Hurdle_02_a
       internalID: 7650552756458787044
       firstFrame: 0
@@ -721,7 +721,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 19_Zombie_Hurdle_05
+      name: Zombie@Hurdle05
       takeName: 19_Zombie_Hurdle_05
       internalID: -3031965562992193367
       firstFrame: 0
@@ -750,7 +750,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 20_Zombie_Hurdle_06
+      name: Zombie@Hurdle06
       takeName: 20_Zombie_Hurdle_06
       internalID: -4449890223322073971
       firstFrame: 0
@@ -779,7 +779,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 21_Zombie_walking_01(InPlace)
+      name: Zombie@walking01(InPlace)
       takeName: 21_Zombie_walking_01(InPlace)
       internalID: -4625593806320338509
       firstFrame: 0
@@ -790,7 +790,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -808,7 +808,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 21_Zombie_walking_01
+      name: Zombie@walking01
       takeName: 21_Zombie_walking_01
       internalID: 4146608163868035601
       firstFrame: 0
@@ -819,7 +819,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -837,7 +837,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 22_Zombie_walking_02(InPlace)
+      name: Zombie@walking02(InPlace)
       takeName: 22_Zombie_walking_02(InPlace)
       internalID: 2206607188211110182
       firstFrame: 0
@@ -848,7 +848,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -866,7 +866,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 22_Zombie_walking_02
+      name: Zombie@walking02
       takeName: 22_Zombie_walking_02
       internalID: -130780661452626207
       firstFrame: 0
@@ -877,7 +877,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -895,7 +895,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 23_Zombie_walking_03(InPlace)
+      name: Zombie@walking03(InPlace)
       takeName: 23_Zombie_walking_03(InPlace)
       internalID: 8761919859108154300
       firstFrame: 0
@@ -906,7 +906,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -924,7 +924,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 23_Zombie_walking_03
+      name: Zombie@walking03
       takeName: 23_Zombie_walking_03
       internalID: 285768429391538638
       firstFrame: 0
@@ -935,7 +935,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -953,7 +953,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 24_Zombie_walking_04(InPlace)
+      name: Zombie@walking04(InPlace)
       takeName: 24_Zombie_walking_04(InPlace)
       internalID: 2213184394852338827
       firstFrame: 0
@@ -964,7 +964,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -982,7 +982,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 24_Zombie_walking_04
+      name: Zombie@walking04
       takeName: 24_Zombie_walking_04
       internalID: 6950015815762231438
       firstFrame: 0
@@ -993,7 +993,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1011,7 +1011,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 25_Zombie_walking_05(InPlace)
+      name: Zombie@walking05(InPlace)
       takeName: 25_Zombie_walking_05(InPlace)
       internalID: -2499248104562898604
       firstFrame: 0
@@ -1022,7 +1022,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1040,7 +1040,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 25_Zombie_walking_05
+      name: Zombie@walking05
       takeName: 25_Zombie_walking_05
       internalID: -3443157141311583921
       firstFrame: 0
@@ -1051,7 +1051,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1069,7 +1069,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 26_Zombie_walking_06(InPlace)
+      name: Zombie@walking06(InPlace)
       takeName: 26_Zombie_walking_06(InPlace)
       internalID: -5368532954417676009
       firstFrame: 0
@@ -1080,7 +1080,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1098,7 +1098,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 26_Zombie_walking_06
+      name: Zombie@walking06
       takeName: 26_Zombie_walking_06
       internalID: 8641616546855362525
       firstFrame: 0
@@ -1109,7 +1109,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1127,7 +1127,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 27_Zombie_walking_07(InPlace)
+      name: Zombie@walking07(InPlace)
       takeName: 27_Zombie_walking_07(InPlace)
       internalID: 4460264248994521899
       firstFrame: 0
@@ -1138,7 +1138,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1156,7 +1156,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 27_Zombie_walking_07
+      name: Zombie@walking07
       takeName: 27_Zombie_walking_07
       internalID: -3226679393396408070
       firstFrame: 0
@@ -1167,7 +1167,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1185,7 +1185,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 28_Zombie_Run_01(InPlace)
+      name: Zombie@Run01(InPlace)
       takeName: 28_Zombie_Run_01(InPlace)
       internalID: 7590320772604262646
       firstFrame: 0
@@ -1196,7 +1196,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1214,7 +1214,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 28_Zombie_Run_01
+      name: Zombie@Run01
       takeName: 28_Zombie_Run_01
       internalID: 8385858168452017199
       firstFrame: 0
@@ -1225,7 +1225,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1243,7 +1243,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 29_Zombie_Run_02(InPlace)
+      name: Zombie@Run02(InPlace)
       takeName: 29_Zombie_Run_02(InPlace)
       internalID: 5051014147175585028
       firstFrame: 0
@@ -1254,7 +1254,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1272,7 +1272,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 29_Zombie_Run_02
+      name: Zombie@Run02
       takeName: 29_Zombie_Run_02
       internalID: -6846269664671418468
       firstFrame: 0
@@ -1283,7 +1283,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1301,7 +1301,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 30_Zombie_Attack_Idle_01
+      name: Zombie@AttackIdle01
       takeName: 30_Zombie_Attack_Idle_01
       internalID: 3803564377115342486
       firstFrame: 0
@@ -1330,7 +1330,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 31_Zombie_walking_08(InPlace)
+      name: Zombie@walking08(InPlace)
       takeName: 31_Zombie_walking_08(InPlace)
       internalID: 8380663289210270238
       firstFrame: 0
@@ -1359,7 +1359,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 31_Zombie_walking_08
+      name: Zombie@walking08
       takeName: 31_Zombie_walking_08
       internalID: -4083448313032219834
       firstFrame: 0
@@ -1388,7 +1388,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 32_Zombie_Attack_Idle_02
+      name: Zombie@AttackIdle02
       takeName: 32_Zombie_Attack_Idle_02
       internalID: -2040951424562276966
       firstFrame: 0
@@ -1417,7 +1417,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 33_Zombie_Attack_moving_01
+      name: Zombie@Attackmoving01
       takeName: 33_Zombie_Attack_moving_01
       internalID: -5974803393432866662
       firstFrame: 0
@@ -1446,7 +1446,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 34_Zombie_Attack_moving_02
+      name: Zombie@Attackmoving02
       takeName: 34_Zombie_Attack_moving_02
       internalID: 3167355815824659170
       firstFrame: 0
@@ -1475,7 +1475,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 35_Zombie_Attack_moving_04
+      name: Zombie@Attackmoving04
       takeName: 35_Zombie_Attack_moving_04
       internalID: 8737004784425051846
       firstFrame: 0
@@ -1504,7 +1504,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 36_Zombie_Attack_moving_05
+      name: Zombie@Attackmoving05
       takeName: 36_Zombie_Attack_moving_05
       internalID: -1452705274844665782
       firstFrame: 0
@@ -1533,7 +1533,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 38_Zombie_Attack_shot_01_a
+      name: Zombie@Attackshot01a
       takeName: 38_Zombie_Attack_shot_01_a
       internalID: 7457790263283388085
       firstFrame: 0
@@ -1562,7 +1562,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 39_Zombie_Attack_shot_02_a
+      name: Zombie@Attackshot02a
       takeName: 39_Zombie_Attack_shot_02_a
       internalID: -6826881018777334925
       firstFrame: 0
@@ -1591,7 +1591,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 40_Zombie_Shot_Down_01
+      name: Zombie@ShotDown01
       takeName: 40_Zombie_Shot_Down_01
       internalID: 3357022380591899877
       firstFrame: 0
@@ -1620,7 +1620,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 41_Zombie_Shot_Down_02
+      name: Zombie@ShotDown02
       takeName: 41_Zombie_Shot_Down_02
       internalID: -8518790425729571780
       firstFrame: 0
@@ -1649,7 +1649,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 42_Zombie_Shot_Down_03
+      name: Zombie@ShotDown03
       takeName: 42_Zombie_Shot_Down_03
       internalID: -6848472261137773676
       firstFrame: 0
@@ -1678,7 +1678,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 43_Zombie_Shot_Down_04
+      name: Zombie@ShotDown04
       takeName: 43_Zombie_Shot_Down_04
       internalID: 1481510300383839772
       firstFrame: 0
@@ -1707,7 +1707,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 44_Zombie_Shot_Down_05
+      name: Zombie@ShotDown05
       takeName: 44_Zombie_Shot_Down_05
       internalID: 3740673754548359949
       firstFrame: 0
@@ -1736,7 +1736,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 45_Zombie_Etc_01_a
+      name: Zombie@Etc01a
       takeName: 45_Zombie_Etc_01_a
       internalID: 8352011776317300375
       firstFrame: 0
@@ -1765,7 +1765,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 46_Zombie_Etc_02_a
+      name: Zombie@Etc02a
       takeName: 46_Zombie_Etc_02_a
       internalID: 7651651642008676008
       firstFrame: 0
@@ -1794,7 +1794,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 47_Zombie_Etc_03_a
+      name: Zombie@Etc03a
       takeName: 47_Zombie_Etc_03_a
       internalID: 4907888288436501523
       firstFrame: 0
@@ -1826,15 +1826,15 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -1871,423 +1871,7 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human:
-    - boneName: Bip01 Pelvis
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Thigh
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Thigh
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Calf
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Calf
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Foot
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Foot
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 Spine
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 Spine1
-      humanName: Chest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 Neck
-      humanName: Neck
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 Head
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Clavicle
-      humanName: LeftShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Clavicle
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L UpperArm
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R UpperArm
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Forearm
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Forearm
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Hand
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Hand
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Toe0
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Toe0
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger0
-      humanName: Left Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger01
-      humanName: Left Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger02
-      humanName: Left Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger1
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger11
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger12
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger2
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger21
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger22
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger3
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger31
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger32
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger4
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger41
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 L Finger42
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger0
-      humanName: Right Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger01
-      humanName: Right Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger02
-      humanName: Right Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger1
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger11
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger12
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger2
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger21
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger22
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger3
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger31
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger32
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger4
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger41
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 R Finger42
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bip01 Spine2
-      humanName: UpperChest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
+    human: []
     skeleton:
     - name: Zombie Motions Pack 1(Clone)
       parentName: 

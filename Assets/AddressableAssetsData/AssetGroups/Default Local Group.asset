@@ -39,6 +39,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - FieldData
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4de5fd922886f2a4f9d3e21af9bdc648
+    m_Address: Assets/Runtime/Monster/2100000004.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - IEnemy
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52f615171f45f6848b4db94543688940
     m_Address: Assets/Prefabs/Skill/2300000003.prefab
     m_ReadOnly: 0
@@ -68,6 +74,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Skill
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 813e22f7efd693b4e905195dd83dfaeb
+    m_Address: Assets/Runtime/Monster/2100000003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - IEnemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8241631a985b3864093134523b448c62
     m_Address: Assets/Runtime/PlayableCharacter/2000000004.prefab

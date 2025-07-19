@@ -96,8 +96,8 @@ namespace Character
         }
         void IUpdateReceiver.Update(float unscaledDeltaTime)
         {
-            if (actorTransform is null || strength == 0) return;
             agent.updatePosition = groundCheckable.IsGrounded;
+            if (actorTransform is null || strength == 0) return;
             strength = groundCheckable.IsGrounded ? 0 : strength;
         }
     }

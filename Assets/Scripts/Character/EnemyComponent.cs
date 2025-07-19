@@ -1,11 +1,12 @@
 using Battle;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
 {
     public class EnemyComponent : CharacterBaseComponent, IEnemy, ITraveler, IStun, IHitStun
     {
-        [SerializeField] AttackBoxComponent weapon;
+        [SerializeField] List<SkillComponent> attacks = new();
 
         float stunTime;
         bool IStun.IsStun => Time.time < stunTime;
@@ -37,7 +38,8 @@ namespace Character
         protected override void OnAttack(int attackType)
         {
             base.OnAttack(attackType);
-            if (weapon != null) weapon.AttackBox.OpenAttackWindow();
+            attackType -= 1;
+            if (attacks.Count > attackType && attacks[attackType] != null) attacks[attackType].Fire();
         }
     }
 }
