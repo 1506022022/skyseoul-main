@@ -9,7 +9,7 @@ namespace Battle
         public enum AttackType { None, OneHit };
         private Delay _delay;
         private readonly List<HitBox> _attacked = new();
-        private bool _bNotWithinAttackWindow => !_delay.IsDelay() || (_attackType == AttackType.OneHit && _bHit);
+        public bool NotWithinAttackWindow => !_delay.IsDelay() || (_attackType == AttackType.OneHit && _bHit);
         private bool _bHit;
         private AttackType _attackType;
 
@@ -23,12 +23,12 @@ namespace Battle
         }
         public void CheckCollision(HitBoxCollision collision)
         {
-            if (_bNotWithinAttackWindow)
+            if (NotWithinAttackWindow)
             {
                 return;
             }
 
-            if (_bNotWithinAttackWindow ||
+            if (NotWithinAttackWindow ||
                 collision.Victim.Actor.Equals(Actor) ||
                 _attacked.Contains(collision.Victim))
             {

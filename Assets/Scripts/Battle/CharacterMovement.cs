@@ -16,7 +16,7 @@ namespace Battle
 
         public void UpdateGravity()
         {
-            
+
         }
     }
     public class CharacterMovement : IMovement

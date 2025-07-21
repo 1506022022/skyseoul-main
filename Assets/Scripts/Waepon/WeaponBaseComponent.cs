@@ -2,7 +2,7 @@ using Battle;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class WaeponBaseComponent : MonoBehaviour, IInitializable
+public abstract class WeaponBaseComponent : MonoBehaviour, IInitializable
 {
     protected Transform owner;
 

@@ -1,9 +1,9 @@
+using Character;
 using System;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
-using Character;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "SkillInvoke", story: "[actor] uses the skill", category: "Action/Skill", id: "85b22c02fe6d7ee81f262ce284d0d642")]

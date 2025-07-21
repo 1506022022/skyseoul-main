@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Battle
 {
-    public abstract class CharacterComponent : MonoBehaviour, IInitializable, IDisposable, IActor, ITransform, IDamageable, IDeathable, IHP
+    public abstract class CharacterComponent : MonoBehaviour, IInitializable, IDisposable, IActor, IGameObject, IDamageable, IDeathable, IHP
     {
         protected CharacterState character { get; private set; }
         IController controller;

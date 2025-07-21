@@ -10,7 +10,7 @@ namespace Chaeracter.State
 
         public static bool IsGrounded(IActor actor)
         {
-            if (actor is ITransform gameObject)
+            if (actor is IGameObject gameObject)
             {
                 var ray = new Ray(gameObject.transform.position + Vector3.up * 0.5f, Vector3.down);
                 var hitCount = Physics.SphereCastNonAlloc(ray, footSize, hits, footSize, LayerMask.GetMask("Ground"));

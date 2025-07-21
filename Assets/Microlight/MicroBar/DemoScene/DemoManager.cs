@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Microlight.MicroBar {
-    public class DemoManager : MonoBehaviour {
+namespace Microlight.MicroBar
+{
+    public class DemoManager : MonoBehaviour
+    {
         [Header("Prefabs")]
         [SerializeField] MicroBar Simple_MicroBar;
         [SerializeField] MicroBar Delayed_MicroBar;
@@ -37,90 +39,105 @@ namespace Microlight.MicroBar {
         float hpRight;
 
         int _currentType;
-        int CurrentType {
+        int CurrentType
+        {
             get => _currentType;
-            set {
+            set
+            {
                 _currentType = value;
                 ChangeBars();
             }
         }
 
-        private void Start() {
+        private void Start()
+        {
             CurrentType = 0;
         }
 
         #region Damage/Heal
-        public void DamageLeft() {
+        public void DamageLeft()
+        {
             float damageAmount = Random.Range(5f, 15f);
             hpLeft -= damageAmount;
-            if(hpLeft < 0f) hpLeft = 0f;
+            if (hpLeft < 0f) hpLeft = 0f;
             soundSource.clip = hurtSound;
-            if(soundOn) soundSource.Play();
+            if (soundOn) soundSource.Play();
 
             // Update HealthBar
-            if(leftMicroBar != null) leftMicroBar.UpdateBar(hpLeft, false, UpdateAnim.Damage);
+            if (leftMicroBar != null) leftMicroBar.UpdateBar(hpLeft, false, UpdateAnim.Damage);
             leftAnimator.SetTrigger("Damage");
         }
-        public void HealLeft() {
+        public void HealLeft()
+        {
             float healAmount = Random.Range(5f, 15f);
             hpLeft += healAmount;
-            if(hpLeft > MAX_HP) hpLeft = MAX_HP;
+            if (hpLeft > MAX_HP) hpLeft = MAX_HP;
             soundSource.clip = healSound;
-            if(soundOn) soundSource.Play();
+            if (soundOn) soundSource.Play();
 
             // Update HealthBar
-            if(leftMicroBar != null) leftMicroBar.UpdateBar(hpLeft, false, UpdateAnim.Heal);
+            if (leftMicroBar != null) leftMicroBar.UpdateBar(hpLeft, false, UpdateAnim.Heal);
             leftAnimator.SetTrigger("Heal");
         }
-        public void DamageRight() {
+        public void DamageRight()
+        {
             float damageAmount = Random.Range(5f, 15f);
             hpRight -= damageAmount;
-            if(hpRight < 0f) hpRight = 0f;
+            if (hpRight < 0f) hpRight = 0f;
             soundSource.clip = hurtSound;
-            if(soundOn) soundSource.Play();
+            if (soundOn) soundSource.Play();
 
             // Update HealthBar
-            if(rightMicroBar != null) rightMicroBar.UpdateBar(hpRight, false, UpdateAnim.Damage);
+            if (rightMicroBar != null) rightMicroBar.UpdateBar(hpRight, false, UpdateAnim.Damage);
             rightAnimator.SetTrigger("Damage");
         }
-        public void HealRight() {
+        public void HealRight()
+        {
             float healAmount = Random.Range(5f, 15f);
             hpRight += healAmount;
-            if(hpRight > MAX_HP) hpRight = MAX_HP;
+            if (hpRight > MAX_HP) hpRight = MAX_HP;
             soundSource.clip = healSound;
-            if(soundOn) soundSource.Play();
+            if (soundOn) soundSource.Play();
 
             // Update HealthBar
-            if(rightMicroBar != null) rightMicroBar.UpdateBar(hpRight, false, UpdateAnim.Heal);
+            if (rightMicroBar != null) rightMicroBar.UpdateBar(hpRight, false, UpdateAnim.Heal);
             rightAnimator.SetTrigger("Heal");
         }
         #endregion
 
         #region Choose Bar
-        public void NextBarType() {
-            if(CurrentType >= 5) {
+        public void NextBarType()
+        {
+            if (CurrentType >= 5)
+            {
                 CurrentType = 0;
             }
-            else {
+            else
+            {
                 CurrentType++;
             }
         }
-        public void PreviousBarType() {
-            if(CurrentType <= 0) {
+        public void PreviousBarType()
+        {
+            if (CurrentType <= 0)
+            {
                 CurrentType = 5;
             }
-            else {
+            else
+            {
                 CurrentType--;
             }
         }
-        void ChangeBars() {
+        void ChangeBars()
+        {
             hpLeft = MAX_HP;
             hpRight = MAX_HP;
 
-            if(leftMicroBar != null) Destroy(leftMicroBar.gameObject);
-            if(rightMicroBar != null) Destroy(rightMicroBar.gameObject);
+            if (leftMicroBar != null) Destroy(leftMicroBar.gameObject);
+            if (rightMicroBar != null) Destroy(rightMicroBar.gameObject);
 
-            switch(CurrentType) {
+            switch (CurrentType)
+            {
                 case 0:
                     leftMicroBar = Instantiate(Simple_MicroBar, leftBarHolder);
                     rightMicroBar = Instantiate(Simple_MicroBar, rightBarHolder);
@@ -154,14 +171,15 @@ namespace Microlight.MicroBar {
             }
 
             if (leftMicroBar != null) leftMicroBar.Initialize(MAX_HP);
-            if(rightMicroBar != null) rightMicroBar.Initialize(MAX_HP);
+            if (rightMicroBar != null) rightMicroBar.Initialize(MAX_HP);
         }
         #endregion
 
         #region Sound
-        public void ToggleSound() {
+        public void ToggleSound()
+        {
             soundOn = !soundOn;
-            if(soundOn) soundButtonText.text = "On";
+            if (soundOn) soundButtonText.text = "On";
             else soundButtonText.text = "Off";
         }
         #endregion

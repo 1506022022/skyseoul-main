@@ -1,5 +1,4 @@
 #if UNITY_EDITOR
-using UnityEditor;
 #endif
 using UnityEngine;
 
@@ -22,7 +21,7 @@ public class GuiDebugger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDrawGizmos()

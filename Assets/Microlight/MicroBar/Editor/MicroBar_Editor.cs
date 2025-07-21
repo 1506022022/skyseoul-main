@@ -39,7 +39,7 @@ namespace Microlight.MicroBar
             float modeButtonY = GUILayoutUtility.GetLastRect().yMax + MicroEditor_Utility.VerticalSpacing;
             Rect simpleModeButtonRect;
             Rect advancedModeButtonRect;
-            if(EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold)
+            if (EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold)
             {
                 // 2 buttons, one next to another
                 modeButtonX = EditorGUIUtility.currentViewWidth / 2 - modeButtonWidth;
@@ -58,35 +58,35 @@ namespace Microlight.MicroBar
             centeredStyle.alignment = TextAnchor.MiddleCenter;
 
             // Simple mode button
-            if((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Simple)
+            if ((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Simple)
             {
                 MicroEditor_DrawUtility.DrawContainer(simpleModeButtonRect);
                 EditorGUI.LabelField(simpleModeButtonRect, "Simple", centeredStyle);
             }
             else
             {
-                if(GUI.Button(simpleModeButtonRect, "Simple"))
+                if (GUI.Button(simpleModeButtonRect, "Simple"))
                 {
                     ChangeMode(editorModeProperty, MicroBarEditorMode.Simple);
                 }
             }
 
             // Advanced mode button
-            if((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Advanced)
+            if ((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Advanced)
             {
                 MicroEditor_DrawUtility.DrawContainer(advancedModeButtonRect);
                 EditorGUI.LabelField(advancedModeButtonRect, "Advanced", centeredStyle);
             }
             else
             {
-                if(GUI.Button(advancedModeButtonRect, "Advanced"))
+                if (GUI.Button(advancedModeButtonRect, "Advanced"))
                 {
                     ChangeMode(editorModeProperty, MicroBarEditorMode.Advanced);
                 }
             }
 
             // Mode buttons spacing
-            if(EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold)
+            if (EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold)
             {
                 // 2 buttons, one next to another
                 EditorGUILayout.Space(MicroEditor_Utility.HeaderLineHeight + MicroEditor_Utility.VerticalSpacing);
@@ -98,20 +98,20 @@ namespace Microlight.MicroBar
             }
 
             // If mode is set to advanced we draw the animations
-            if((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Advanced)
+            if ((MicroBarEditorMode)editorModeProperty.enumValueIndex == MicroBarEditorMode.Advanced)
             {
                 // Animations
                 EditorGUILayout.LabelField("Animations", EditorStyles.boldLabel);
 
                 int arraySize = animationsProperty.arraySize;
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = animationsProperty.GetArrayElementAtIndex(i);
                     EditorGUILayout.PropertyField(elementProperty, true);
 
                     // Draw the remove button
                     GUI.backgroundColor = MicroBar_Theme.RemoveButtonColor;
-                    if(GUI.Button(RemoveButtonRect(GUILayoutUtility.GetLastRect()), "-"))
+                    if (GUI.Button(RemoveButtonRect(GUILayoutUtility.GetLastRect()), "-"))
                     {
                         RemoveItem(animationsProperty, i);
                         arraySize = animationsProperty.arraySize;
@@ -125,7 +125,7 @@ namespace Microlight.MicroBar
                 float buttonX = GUILayoutUtility.GetLastRect().x - 8;
                 Rect buttonRect = new Rect(buttonX, GUILayoutUtility.GetLastRect().yMax + MicroEditor_Utility.VerticalSpacing, buttonWidth, MicroEditor_Utility.HeaderLineHeight);
 
-                if(GUI.Button(buttonRect, "Add Animation"))
+                if (GUI.Button(buttonRect, "Add Animation"))
                 {
                     AddNewItemToList(animationsProperty);
                 }
@@ -162,7 +162,7 @@ namespace Microlight.MicroBar
 
         static void ChangeMode(SerializedProperty editorModeProperty, MicroBarEditorMode newEditorMode)
         {
-            if(editorModeProperty.enumValueIndex != (int)newEditorMode)
+            if (editorModeProperty.enumValueIndex != (int)newEditorMode)
             {
                 editorModeProperty.enumValueIndex = (int)newEditorMode;
                 editorModeProperty.serializedObject.ApplyModifiedProperties();

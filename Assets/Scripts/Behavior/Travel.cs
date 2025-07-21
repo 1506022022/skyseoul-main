@@ -1,9 +1,9 @@
+using Character;
 using System;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
-using Character;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Travel", story: "Where [travelers] go [start]", category: "Action", id: "65bea4532a08f76b5494a4abd82e640d")]

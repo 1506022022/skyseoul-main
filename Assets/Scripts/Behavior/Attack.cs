@@ -1,10 +1,11 @@
+using Battle;
+using Character;
 using System;
 using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using Character;
-using Battle;
+using UnityEngine;
+using UnityEngine.AI;
+using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Attack", story: "[actor] attacks by [num]", category: "Character/Action", id: "2b893acdb1042987e1eefa135b8ea228")]
@@ -16,6 +17,10 @@ public partial class Attack : Action
     protected override Status OnStart()
     {
         if (!Actor.Value.TryGetComponent<IActor>(out var actor) || actor is not IAttackable attacker) return Status.Failure;
+        if (Actor.Value.TryGetComponent<NavMeshAgent>(out var agent))
+        {
+            agent.ResetPath();
+        }
         attacker.Attack(Num);
 
         return Status.Success;

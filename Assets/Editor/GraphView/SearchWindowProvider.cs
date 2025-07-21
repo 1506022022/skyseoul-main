@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 public class SearchWindowProvider : ScriptableObject, ISearchWindowProvider

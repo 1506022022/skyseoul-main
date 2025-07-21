@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
-    [field:SerializeField] public ScannerSO ScanData { get; private set; }
+    [field: SerializeField] public ScannerSO ScanData { get; private set; }
 
     public Camera cam;
 
@@ -22,9 +20,9 @@ public class Scanner : MonoBehaviour
         hitData.forwardHitFound = Physics.Raycast(forwardOrigin, cam.transform.forward, out hitData.forwardHit,
             ScanData.scanBasicData.ForwardRayLength, ScanData.scanBasicData.scanLayer);
 
-        Debug.DrawRay(forwardOrigin, cam.transform.forward * ScanData.scanBasicData.ForwardRayLength, (hitData.forwardHitFound)? Color.red : Color.green);
+        Debug.DrawRay(forwardOrigin, cam.transform.forward * ScanData.scanBasicData.ForwardRayLength, (hitData.forwardHitFound) ? Color.red : Color.green);
 
-        if(hitData.forwardHitFound )
+        if (hitData.forwardHitFound)
         {
             var forwardEndPoint = forwardOrigin + cam.transform.forward * ScanData.scanBasicData.ForwardRayLength;
 

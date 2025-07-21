@@ -221,12 +221,6 @@ namespace TopDown
             routeMaps.localPosition = Vector3.SmoothDamp(routeMaps.localPosition, targetPos, ref scrollVelocityY, smoothTime);
         }
 
-        [MenuItem("Func/Test")]
-        public static void Test()
-        {
-            CreateMapData();
-        }
-
         private static void CreateMapData()
         {
             var json = new MapJson();

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Battle
 {
-    public class BattleHUD : IDisposable,IInitializable
+    public class BattleHUD : IDisposable, IInitializable
     {
         readonly MicroBar playerBar;
         readonly MicroBar enemyBar;

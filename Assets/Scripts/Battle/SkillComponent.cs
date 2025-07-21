@@ -36,7 +36,7 @@ public class SkillComponent : MonoBehaviour
     public void SetCaster(Transform caster)
     {
         attackContainer.SetActor(caster);
-        Initialize(Skill,Controller);
+        Initialize(Skill, Controller);
     }
     public void Initialize(Skill skill, SkillController controller)
     {

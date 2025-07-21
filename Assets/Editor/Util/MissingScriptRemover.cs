@@ -8,7 +8,7 @@ public class MissingScriptRemover
     {
         int count = 0;
 
-        GameObject[] allGameObjects = Object.FindObjectsByType<GameObject>(  FindObjectsSortMode.InstanceID);
+        GameObject[] allGameObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
 
         foreach (GameObject go in allGameObjects)
         {

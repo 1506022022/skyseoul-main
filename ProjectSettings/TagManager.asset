@@ -11,6 +11,7 @@ TagManager:
   - GameManager
   - Zombie
   - CinemachineTarget
+  - Grabbable
   layers:
   - Default
   - TransparentFX

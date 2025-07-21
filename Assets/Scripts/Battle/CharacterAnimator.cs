@@ -57,7 +57,7 @@ namespace Battle
         protected virtual void OnHit() { }
         protected virtual void OnDie()
         {
-        
+
         }
         public void Initialize(CharacterState character, Animator animator)
         {

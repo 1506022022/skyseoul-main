@@ -1,9 +1,8 @@
 using Battle;
-using System.Collections.Generic;
 using System;
-using UnityEditor;
-using UnityEngine;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 [Serializable]
 public struct SkillFrame
@@ -91,56 +90,5 @@ public class SkillController : IController
         skill.Transform.localScale = frame.Scale;
         skill.AttackBox.SetAttackWindow(frame.duration / 1000f);
         skill.AttackBox.OpenAttackWindow();
-    }
-}
-
-//[CustomPropertyDrawer(typeof(Skill))]
-public class SkillDrawer : PropertyDrawer
-{
-    SerializedProperty property;
-    int ms;
-    int maxMs = int.MaxValue;
-
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    {
-        this.property = property;
-        DrawHeader(ref position, property);
-        DrawAttackGraph(ref position, property);
-        DrawGraphSlider(ref position, property);
-        DrawEdit(ref position, property);
-    }
-    void DrawHeader(ref Rect position, SerializedProperty property)
-    {
-        position.height = EditorGUIUtility.singleLineHeight;
-        GUIStyle lable = new(GUI.skin.label) { fontStyle = FontStyle.Bold };
-        GUIContent con = new GUIContent() { text = nameof(Skill) };
-        EditorGUI.LabelField(position, con, lable);
-        position.y += EditorGUIUtility.singleLineHeight;
-    }
-    static void DrawAttackGraph(ref Rect position, SerializedProperty property)
-    {
-        position.height = 30;
-        AnimationCurve curve = new();
-
-        EditorGUI.CurveField(position, curve);
-        position.y += position.height;
-        position.height = EditorGUIUtility.singleLineHeight;
-    }
-    void DrawGraphSlider(ref Rect position, SerializedProperty property)
-    {
-        EditorGUI.GradientField(position, new Gradient());
-        ms = EditorGUI.IntSlider(position, ms, 0, maxMs - 100);
-        position.y += EditorGUIUtility.singleLineHeight;
-    }
-    void DrawEdit(ref Rect position, SerializedProperty property)
-    {
-        var prob = property.FindPropertyRelative("frames");
-        if (prob.arraySize == 0) property.InsertArrayElementAtIndex(0);
-        var first = prob.GetArrayElementAtIndex(0);
-        EditorGUI.PropertyField(position, first, true);
-    }
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-    {
-        return base.GetPropertyHeight(property, label) * 12;
     }
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace Battle
 {
     public static class FlagHelper

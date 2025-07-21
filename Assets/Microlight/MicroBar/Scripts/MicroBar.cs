@@ -89,11 +89,11 @@ namespace Microlight.MicroBar
             _currentValue = maxValue;
             SetNewMaxHP(maxValue);
 
-            if(editorMode == MicroBarEditorMode.Advanced)
+            if (editorMode == MicroBarEditorMode.Advanced)
             {
-                foreach(MicroBarAnimation x in animations)
+                foreach (MicroBarAnimation x in animations)
                 {
-                    if(!x.Initialize(this))
+                    if (!x.Initialize(this))
                     {
                         isInitalized = false;
                         Debug.LogError("[MicroBar] 'MicroBarAnimation' initialization failed");
@@ -103,13 +103,13 @@ namespace Microlight.MicroBar
             }
             else
             {
-                if(simpleBar == null)
+                if (simpleBar == null)
                 {
                     Debug.LogError("[MicroBar] editorMode set to 'Simple' but 'simpleBar' is null");
                     return;
                 }
 
-                if(!simpleBar.Initialize(this))
+                if (!simpleBar.Initialize(this))
                 {
                     Debug.LogError("[MicroBar] 'SimpleMicroBar' initialization failed");
                     return;
@@ -132,13 +132,13 @@ namespace Microlight.MicroBar
         /// <param name="skipAnimation">If true, it will skip all animations for changing max health bar value</param>
         public void SetNewMaxHP(float newMaxValue, bool skipAnimation = false)
         {
-            if(!isInitalized)
+            if (!isInitalized)
             {
                 Debug.LogWarning("[MicroBar] Not initialization");
                 return;
             }
             // Don't allow negative max HP
-            if(newMaxValue < 1f)
+            if (newMaxValue < 1f)
             {
                 newMaxValue = 1f;
             }
@@ -150,19 +150,19 @@ namespace Microlight.MicroBar
 
             // Calculate new CurrentHealth
             float newHP;
-            switch(MaxHealthCalculation)
+            switch (MaxHealthCalculation)
             {
                 case MaxHealthCalculation.Follow:
                     // Don't allow current HP to go lower than 0
                     newHP = CurrentValue + change;
-                    if(newHP < 1)
+                    if (newHP < 1)
                     {
                         newHP = 1;
                     }
                     CurrentValue = newHP;
                     break;
                 case MaxHealthCalculation.FollowIncrease:
-                    if(change > 0)
+                    if (change > 0)
                     {
                         CurrentValue += change;
                     }
@@ -170,7 +170,7 @@ namespace Microlight.MicroBar
                 case MaxHealthCalculation.Proportional:
                     // Don't allow current HP to go lower than 0
                     newHP = MaxValue * previousProportion;
-                    if(newHP < 1)
+                    if (newHP < 1)
                     {
                         newHP = 1;
                     }
@@ -193,7 +193,7 @@ namespace Microlight.MicroBar
         /// <param name="updateType">Type of the animation that will be played (Damage, Heal, etc...)</param>
         public void UpdateBar(float newHP, bool skipAnimation = false, UpdateAnim updateType = UpdateAnim.Damage)
         {
-            if(!isInitalized)
+            if (!isInitalized)
             {
                 Debug.LogWarning("[MicroBar] Not initialization");
                 return;
@@ -226,7 +226,7 @@ namespace Microlight.MicroBar
         /// </summary>
         public void SnapshotDefaultValues()
         {
-            if(!isInitalized)
+            if (!isInitalized)
             {
                 Debug.LogWarning("[MicroBar] Not initialization");
                 return;

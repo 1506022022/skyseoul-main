@@ -1,9 +1,9 @@
 namespace Microlight.MicroBar
 {
 #if UNITY_EDITOR
-    using System;
     using DG.Tweening;
     using Microlight.MicroEditor;
+    using System;
     using UnityEditor;
     using UnityEngine;
     using UnityEngine.Rendering;
@@ -20,7 +20,7 @@ namespace Microlight.MicroBar
             float totalHeight = 0;
 
             totalHeight += HeaderHeight(property);   // Header
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;   // Anim
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;   // Render type
@@ -79,7 +79,7 @@ namespace Microlight.MicroBar
                 position.width + EditorGUIUtility.singleLineHeight,
                 position.height);
 
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 // If property is expanded, we want to draw default color and leave coloring to the header drawing
                 MicroEditor_DrawUtility.DrawContainer(wholeProperty);
@@ -92,11 +92,11 @@ namespace Microlight.MicroBar
             // Add mouse interaction and draw hover glow 
             EditorGUIUtility.AddCursorRect(headerRectWithArrow, MouseCursor.Link);
             //if(Event.current.type == EventType.MouseMove && headerRectWithArrow.Contains(Event.current.mousePosition)) {
-            if(headerRectWithArrow.Contains(Event.current.mousePosition) ||
+            if (headerRectWithArrow.Contains(Event.current.mousePosition) ||
                 property.isExpanded)
             {
                 MicroEditor_DrawUtility.DrawContainer(headerRectWithArrow, DecideHeaderColor(property));  // Dont want glow effect
-                if(property.isExpanded)
+                if (property.isExpanded)
                 {
                     MicroEditor_DrawUtility.DrawContainerBottomOutline(headerRectWithArrow);
                 }
@@ -112,7 +112,7 @@ namespace Microlight.MicroBar
 
         Rect DrawAnimField(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 SerializedProperty animTypeProperty = property.FindPropertyRelative("animationType");
                 return MicroEditor_DrawUtility.DrawProperty(position, animTypeProperty, new GUIContent("Update animation"));
@@ -122,7 +122,7 @@ namespace Microlight.MicroBar
 
         Rect DrawRenderField(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
                 return MicroEditor_DrawUtility.DrawProperty(position, renderTypeProperty, new GUIContent("Render type"));
@@ -132,15 +132,15 @@ namespace Microlight.MicroBar
 
         Rect DrawTargetField(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
-                if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+                if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
                 {
                     SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
                     return MicroEditor_DrawUtility.DrawProperty(position, targetImageProperty, new GUIContent("Target Image"));
                 }
-                else if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
+                else if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
                 {
                     SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
                     return MicroEditor_DrawUtility.DrawProperty(position, targetSpriteProperty, new GUIContent("Target Sprite"));
@@ -151,31 +151,31 @@ namespace Microlight.MicroBar
 
         Rect DrawNotBarField(Rect position, SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return position;
             }
 
             SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
-                if(targetImageProperty.objectReferenceValue == null)
+                if (targetImageProperty.objectReferenceValue == null)
                 {
                     return position;
                 }
 
                 Image image = (Image)targetImageProperty.objectReferenceValue;
                 //SerializedProperty imageTypeProperty = targetImageProperty.FindPropertyRelative("type");
-                if(image.type != Image.Type.Filled)
+                if (image.type != Image.Type.Filled)
                 {
                     return position;
                 }
             }
-            else if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
+            else if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
             {
                 SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-                if(targetSpriteProperty.objectReferenceValue == null)
+                if (targetSpriteProperty.objectReferenceValue == null)
                 {
                     return position;
                 }
@@ -188,7 +188,7 @@ namespace Microlight.MicroBar
 
         Rect DrawSelectionError(Rect position, SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return position;
             }
@@ -198,43 +198,43 @@ namespace Microlight.MicroBar
             SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
 
             // Image render type doesn't have these problems
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return position;
             }
 
             // Commands
             int arraySize = commandsProperty.arraySize;
-            if(arraySize > 0)
+            if (arraySize > 0)
             {
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     SerializedProperty effectProperty = elementProperty.FindPropertyRelative("effect");
 
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
                     {
-                        if(notBarProperty.boolValue)
+                        if (notBarProperty.boolValue)
                         {
                             return DrawFillError();
                         }
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.AnchorMove)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.AnchorMove)
                     {
                         return DrawAnchorError();
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Punch)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Punch)
                     {
                         SerializedProperty transformProperty = elementProperty.FindPropertyRelative("transformProperty");
-                        if((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
+                        if ((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
                         {
                             return DrawAnchorError();
                         }
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Scale)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Scale)
                     {
                         SerializedProperty transformProperty = elementProperty.FindPropertyRelative("transformProperty");
-                        if((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
+                        if ((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
                         {
                             return DrawAnchorError();
                         }
@@ -278,7 +278,7 @@ namespace Microlight.MicroBar
 
         Rect DrawFillWarning(Rect position, SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return position;
             }
@@ -288,18 +288,18 @@ namespace Microlight.MicroBar
             SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
 
             // Not Bar, when not bar is turned on, means it doesnt need to have fill, if it doesnt want to
-            if(notBarProperty.boolValue)
+            if (notBarProperty.boolValue)
                 return position;
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
-                if(targetImageProperty.objectReferenceValue == null)
+                if (targetImageProperty.objectReferenceValue == null)
                 {
                     return position;
                 }
                 Image image = (Image)targetImageProperty.objectReferenceValue;
-                if(image.type != Image.Type.Filled)
+                if (image.type != Image.Type.Filled)
                 {
                     return position;
                 }
@@ -307,7 +307,7 @@ namespace Microlight.MicroBar
             else
             {
                 SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-                if(targetSpriteProperty.objectReferenceValue == null)
+                if (targetSpriteProperty.objectReferenceValue == null)
                 {
                     return position;
                 }
@@ -315,14 +315,14 @@ namespace Microlight.MicroBar
 
             // Commands
             int arraySize = commandsProperty.arraySize;
-            if(arraySize > 0)
+            if (arraySize > 0)
             {
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     SerializedProperty effectProperty = elementProperty.FindPropertyRelative("effect");
 
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
                     {
                         return position;   // If we have found fill command, leave
                     }
@@ -347,7 +347,7 @@ namespace Microlight.MicroBar
 
         Rect DrawSpriteMaskWarning(Rect position, SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return position;
             }
@@ -356,36 +356,36 @@ namespace Microlight.MicroBar
             SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
 
             // Not Bar, when not bar is turned on, means it doesnt need to have fill, if it doesnt want to
-            if(notBarProperty.boolValue)
+            if (notBarProperty.boolValue)
             {
                 return position;
             }
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return position;   // If its image, we don't need masks
             }
 
             SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-            if(targetSpriteProperty.objectReferenceValue == null)
+            if (targetSpriteProperty.objectReferenceValue == null)
             {
                 return position;
             }
 
             SpriteRenderer spriteRenderer = (SpriteRenderer)targetSpriteProperty.objectReferenceValue;
-            if(spriteRenderer == null)
+            if (spriteRenderer == null)
             {
                 return position;   // This should never happen but okay
             }
 
             SortingGroup spriteGroup = spriteRenderer.GetComponent<SortingGroup>();
-            if(spriteGroup == null)
+            if (spriteGroup == null)
             {
                 position = DrawSortingGroupWarning(spriteRenderer.gameObject.name);
             }
 
             SpriteMask spriteMask = spriteRenderer.GetComponentInChildren<SpriteMask>();
-            if(spriteMask == null)
+            if (spriteMask == null)
             {
                 position = DrawSpriteMaskWarning(spriteRenderer.gameObject.name);
             }
@@ -432,11 +432,11 @@ namespace Microlight.MicroBar
 
         Rect DrawCommands(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
                 int arraySize = commandsProperty.arraySize;
-                if(arraySize <= 0)
+                if (arraySize <= 0)
                 {
                     return position;   // Don't draw anything if empty
                 }
@@ -449,7 +449,7 @@ namespace Microlight.MicroBar
                 position.y += MicroEditor_Utility.LineHeight;
 
                 // Draw
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     Rect elementRect = new Rect(
@@ -466,7 +466,7 @@ namespace Microlight.MicroBar
 
                     // Draw the remove button
                     GUI.backgroundColor = MicroBar_Theme.RemoveButtonColor;
-                    if(GUI.Button(AnimCommand_Drawer.RemoveButtonRect(elementRect), "-"))
+                    if (GUI.Button(AnimCommand_Drawer.RemoveButtonRect(elementRect), "-"))
                     {
                         RemoveItem(commandsProperty, i);
                         arraySize = commandsProperty.arraySize;
@@ -475,16 +475,16 @@ namespace Microlight.MicroBar
                     GUI.backgroundColor = Color.white;
 
                     // Draw up and down buttons
-                    if(i != 0)
+                    if (i != 0)
                     {
-                        if(GUI.Button(AnimCommand_Drawer.UpButtonRect(elementRect), "+"))
+                        if (GUI.Button(AnimCommand_Drawer.UpButtonRect(elementRect), "+"))
                         {
                             SwitchListOrder(commandsProperty, i, i - 1);
                         }
                     }
-                    if(i != arraySize - 1)
+                    if (i != arraySize - 1)
                     {
-                        if(GUI.Button(AnimCommand_Drawer.DownButtonRect(elementRect), "-"))
+                        if (GUI.Button(AnimCommand_Drawer.DownButtonRect(elementRect), "-"))
                         {
                             SwitchListOrder(commandsProperty, i, i + 1);
                         }
@@ -496,7 +496,7 @@ namespace Microlight.MicroBar
 
         Rect DrawAddButton(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
 
@@ -507,7 +507,7 @@ namespace Microlight.MicroBar
                     position.width - 10,
                     MicroEditor_Utility.HeaderLineHeight);
                 GUI.backgroundColor = MicroBar_Theme.AddButtonColor;
-                if(GUI.Button(buttonPosition, "Add Command"))
+                if (GUI.Button(buttonPosition, "Add Command"))
                 {
                     AddNewItem(commandsProperty);
                 }
@@ -523,22 +523,22 @@ namespace Microlight.MicroBar
 
         Rect DrawCanvasWarning(Rect position, SerializedProperty property)
         {
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 bool hasCanvas = HasCanvasParent(property);
                 bool needsCanvas = property.FindPropertyRelative("renderType").enumValueIndex == (int)RenderType.Image;
 
                 string message = "";
-                if(!hasCanvas && needsCanvas)
+                if (!hasCanvas && needsCanvas)
                 {
                     message = "Rendering is set to 'Image' but there is no 'Canvas' parent.";
                 }
-                else if(hasCanvas && !needsCanvas)
+                else if (hasCanvas && !needsCanvas)
                 {
                     message = "Rendering is set to 'Sprite' but there is 'Canvas' parent.";
                 }
 
-                if(message == "")
+                if (message == "")
                 {
                     return position;
                 }
@@ -564,7 +564,7 @@ namespace Microlight.MicroBar
         static float HeaderHeight(SerializedProperty property)
         {
             float height = MicroEditor_Utility.HeaderLineHeight;
-            if(property.isExpanded)
+            if (property.isExpanded)
             {
                 height += MicroEditor_Utility.VerticalSpacing;
                 height += 1;   // Because of the bottom border which is inside container
@@ -574,31 +574,31 @@ namespace Microlight.MicroBar
 
         static float NotBarHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
 
             SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
-                if(targetImageProperty.objectReferenceValue == null)
+                if (targetImageProperty.objectReferenceValue == null)
                 {
                     return 0f;
                 }
 
                 Image image = (Image)targetImageProperty.objectReferenceValue;
                 //SerializedProperty imageTypeProperty = targetImageProperty.FindPropertyRelative("type");
-                if(image.type != Image.Type.Filled)
+                if (image.type != Image.Type.Filled)
                 {
                     return 0f;
                 }
             }
-            else if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
+            else if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
             {
                 SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-                if(targetSpriteProperty.objectReferenceValue == null)
+                if (targetSpriteProperty.objectReferenceValue == null)
                 {
                     return 0f;
                 }
@@ -609,7 +609,7 @@ namespace Microlight.MicroBar
 
         static float SelectionErrorHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -619,43 +619,43 @@ namespace Microlight.MicroBar
             SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
 
             // Image render type doesn't have these problems
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return 0f;
             }
 
             // Commands
             int arraySize = commandsProperty.arraySize;
-            if(arraySize > 0)
+            if (arraySize > 0)
             {
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     SerializedProperty effectProperty = elementProperty.FindPropertyRelative("effect");
 
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
                     {
-                        if(notBarProperty.boolValue)
+                        if (notBarProperty.boolValue)
                         {
                             return ReturnSpace();
                         }
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.AnchorMove)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.AnchorMove)
                     {
                         return ReturnSpace();
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Punch)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Punch)
                     {
                         SerializedProperty transformProperty = elementProperty.FindPropertyRelative("transformProperty");
-                        if((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
+                        if ((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
                         {
                             return ReturnSpace();
                         }
                     }
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Scale)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Scale)
                     {
                         SerializedProperty transformProperty = elementProperty.FindPropertyRelative("transformProperty");
-                        if((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
+                        if ((TransformProperties)transformProperty.enumValueIndex == TransformProperties.AnchorPosition)
                         {
                             return ReturnSpace();
                         }
@@ -670,7 +670,7 @@ namespace Microlight.MicroBar
 
         static float FillWarningHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -679,18 +679,18 @@ namespace Microlight.MicroBar
             SerializedProperty commandsProperty = property.FindPropertyRelative("commands");
 
             // Not bar
-            if(notBarProperty.boolValue)
+            if (notBarProperty.boolValue)
                 return 0f;
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
-                if(targetImageProperty.objectReferenceValue == null)
+                if (targetImageProperty.objectReferenceValue == null)
                 {
                     return 0f;
                 }
                 Image image = (Image)targetImageProperty.objectReferenceValue;
-                if(image.type != Image.Type.Filled)
+                if (image.type != Image.Type.Filled)
                 {
                     return 0f;
                 }
@@ -698,7 +698,7 @@ namespace Microlight.MicroBar
             else
             {
                 SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-                if(targetSpriteProperty.objectReferenceValue == null)
+                if (targetSpriteProperty.objectReferenceValue == null)
                 {
                     return 0f;
                 }
@@ -706,14 +706,14 @@ namespace Microlight.MicroBar
 
             // Commands
             int arraySize = commandsProperty.arraySize;
-            if(arraySize > 0)
+            if (arraySize > 0)
             {
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     SerializedProperty effectProperty = elementProperty.FindPropertyRelative("effect");
 
-                    if((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
+                    if ((AnimEffect)effectProperty.enumValueIndex == AnimEffect.Fill)
                     {
                         return 0f;   // If we have found fill command, leave
                     }
@@ -726,7 +726,7 @@ namespace Microlight.MicroBar
 
         static float SpriteMaskWarningHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -736,36 +736,36 @@ namespace Microlight.MicroBar
             SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
 
             // Not Bar, when not bar is turned on, means it doesnt need to have fill, if it doesnt want to
-            if(notBarProperty.boolValue)
+            if (notBarProperty.boolValue)
             {
                 return 0f;
             }
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return 0f;   // If its image, we don't need masks
             }
 
             SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-            if(targetSpriteProperty.objectReferenceValue == null)
+            if (targetSpriteProperty.objectReferenceValue == null)
             {
                 return 0f;
             }
 
             SpriteRenderer spriteRenderer = (SpriteRenderer)targetSpriteProperty.objectReferenceValue;
-            if(spriteRenderer == null)
+            if (spriteRenderer == null)
             {
                 return 0f;   // This should never happen but okay
             }
 
             SortingGroup spriteGroup = spriteRenderer.GetComponent<SortingGroup>();
-            if(spriteGroup == null)
+            if (spriteGroup == null)
             {
                 height += ReturnSpace();
             }
 
             SpriteMask spriteMask = spriteRenderer.GetComponentInChildren<SpriteMask>();
-            if(spriteMask == null)
+            if (spriteMask == null)
             {
                 height += ReturnSpace();
             }
@@ -777,7 +777,7 @@ namespace Microlight.MicroBar
 
         static float CommandsHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -787,10 +787,10 @@ namespace Microlight.MicroBar
             int arraySize = commandsProperty.arraySize;
 
             // Calculate
-            if(arraySize > 0)
+            if (arraySize > 0)
             {
                 height = MicroEditor_Utility.LineHeight;   // Sort label, displayed only when there are commands
-                for(int i = 0; i < arraySize; i++)
+                for (int i = 0; i < arraySize; i++)
                 {
                     SerializedProperty elementProperty = commandsProperty.GetArrayElementAtIndex(i);
                     height += AnimCommand_Drawer.GetHeight(elementProperty) + MicroEditor_Utility.VerticalSpacing;
@@ -802,7 +802,7 @@ namespace Microlight.MicroBar
 
         static float AddButtonHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -811,7 +811,7 @@ namespace Microlight.MicroBar
 
         static float CanvasWarningHeight(SerializedProperty property)
         {
-            if(!property.isExpanded)
+            if (!property.isExpanded)
             {
                 return 0f;
             }
@@ -819,11 +819,11 @@ namespace Microlight.MicroBar
             bool hasCanvas = HasCanvasParent(property);
             bool needsCanvas = property.FindPropertyRelative("renderType").enumValueIndex == (int)RenderType.Image;
 
-            if(!hasCanvas && needsCanvas)
+            if (!hasCanvas && needsCanvas)
             {
                 return MicroEditor_Utility.LineHeight * 2 + MicroEditor_Utility.VerticalSpacing * 3;
             }
-            else if(hasCanvas && !needsCanvas)
+            else if (hasCanvas && !needsCanvas)
             {
                 return MicroEditor_Utility.LineHeight * 2 + MicroEditor_Utility.VerticalSpacing * 3;
             }
@@ -840,19 +840,19 @@ namespace Microlight.MicroBar
             string suffix = "'null'";
 
             SerializedProperty renderTypeProperty = property.FindPropertyRelative("renderType");
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 SerializedProperty targetImageProperty = property.FindPropertyRelative("targetImage");
-                if(targetImageProperty.objectReferenceValue != null)
+                if (targetImageProperty.objectReferenceValue != null)
                 {
                     Image image = (Image)targetImageProperty.objectReferenceValue;
                     suffix = image.name;
                 }
             }
-            else if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
+            else if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Sprite)
             {
                 SerializedProperty targetSpriteProperty = property.FindPropertyRelative("targetSprite");
-                if(targetSpriteProperty.objectReferenceValue != null)
+                if (targetSpriteProperty.objectReferenceValue != null)
                 {
                     SpriteRenderer sprite = (SpriteRenderer)targetSpriteProperty.objectReferenceValue;
                     suffix = sprite.name;
@@ -903,7 +903,7 @@ namespace Microlight.MicroBar
         static void SwitchListOrder(SerializedProperty commandsProperty, int indexA, int indexB)
         {
             // Check if the indices are valid
-            if(indexA < 0 || indexA >= commandsProperty.arraySize || indexB < 0 || indexB >= commandsProperty.arraySize)
+            if (indexA < 0 || indexA >= commandsProperty.arraySize || indexB < 0 || indexB >= commandsProperty.arraySize)
             {
                 Debug.LogWarning("Invalid indices for switching order.");
                 return;
@@ -916,7 +916,7 @@ namespace Microlight.MicroBar
         static Color DecideHeaderColor(SerializedProperty property)
         {
             SerializedProperty animTypeProperty = property.FindPropertyRelative("animationType");
-            switch((UpdateAnim)animTypeProperty.enumValueIndex)
+            switch ((UpdateAnim)animTypeProperty.enumValueIndex)
             {
                 case UpdateAnim.Damage:
                     return MicroBar_Theme.DamageAnimColorMultiplier;

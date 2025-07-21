@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class EntryNode : BaseNode
 {
     public EntryNode(int guid = 0) : base(0)

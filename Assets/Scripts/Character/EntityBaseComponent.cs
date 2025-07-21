@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public abstract class EntityBaseComponent : MonoBehaviour, IActor, ITransform
+    public abstract class EntityBaseComponent : MonoBehaviour, IActor, IGameObject
     {
     }
 }

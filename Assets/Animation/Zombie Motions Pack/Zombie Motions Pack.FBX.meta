@@ -1873,28 +1873,28 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: Zombie Motions Pack 1(Clone)
+    - name: Zombie Motions Pack(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: -0.017729443, z: 0, w: 0.9998428}
       scale: {x: 1, y: 1, z: 1}
     - name: man01
-      parentName: Zombie Motions Pack 1(Clone)
+      parentName: Zombie Motions Pack(Clone)
       position: {x: -0.009189031, y: 0.0060700225, z: 0.028879812}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: man02
-      parentName: Zombie Motions Pack 1(Clone)
+      parentName: Zombie Motions Pack(Clone)
       position: {x: -0.009189031, y: 0.0060700225, z: 0.028879812}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: man03
-      parentName: Zombie Motions Pack 1(Clone)
+      parentName: Zombie Motions Pack(Clone)
       position: {x: -0.009189031, y: 0.0060664364, z: 0.028879812}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01
-      parentName: Zombie Motions Pack 1(Clone)
+      parentName: Zombie Motions Pack(Clone)
       position: {x: -0, y: 1.0350369, z: 0}
       rotation: {x: -0.47177508, y: 0.4905973, z: 0.5262684, w: 0.50969034}
       scale: {x: 1, y: 1, z: 1}

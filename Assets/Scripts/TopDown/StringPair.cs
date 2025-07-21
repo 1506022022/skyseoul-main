@@ -11,7 +11,7 @@ namespace TopDown
         public string Value;
     }
 
-    [CreateAssetMenu(menuName ="Data/StringPair")]
+    [CreateAssetMenu(menuName = "Data/StringPair")]
     public class StringPair : ScriptableObject
     {
         [SerializeField] List<String2> data = new();

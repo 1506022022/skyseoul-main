@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class GunComponent : WaeponBaseComponent
+public class GunComponent : WeaponBaseComponent
 {
     Gun gun;
 

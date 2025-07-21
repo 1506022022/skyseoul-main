@@ -1,10 +1,12 @@
 using Battle;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Battle.AttackBox;
 
 namespace Character
 {
-    public class EnemyComponent : CharacterBaseComponent, IEnemy, ITraveler, IStun, IHitStun
+    public class EnemyComponent : CharacterBaseComponent, IEnemy, ITraveler, IStun, IHitStun, IGrab, IThrow
     {
         [SerializeField] List<SkillComponent> attacks = new();
 
@@ -17,7 +19,7 @@ namespace Character
 
         protected override void OnTakeDamage()
         {
-            (this as IHitStun)?.HitStun(0.5f);
+            (this as IHitStun)?.HitStun(3f);
         }
 
         void ITraveler.StartTravel()
@@ -41,5 +43,37 @@ namespace Character
             attackType -= 1;
             if (attacks.Count > attackType && attacks[attackType] != null) attacks[attackType].Fire();
         }
+        void IGrab.Grab(Transform target)
+        {
+            if (TryGetComponent<GrabInfo>(out var grabInfo))
+            {
+                StartCoroutine(LateGrab(grabInfo, target));
+            }
+            animator.SetBool("Grab", true);
+            OnGrab(target);
+        }
+        IEnumerator LateGrab(GrabInfo grabInfo, Transform grabTarget)
+        {
+            yield return new WaitForSeconds(grabInfo.GrabTransformDelay);
+            if (grabTarget == null || grabInfo.GrabTransform == null) yield break;
+            grabTarget.SetParent(grabInfo.GrabTransform);
+            grabTarget.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
+        protected virtual void OnGrab(Transform target) { }
+
+        void IGrab.Drop()
+        {
+            animator.SetBool("Grab", false);
+            OnDrop();
+        }
+        protected virtual void OnDrop() { }
+
+        void IThrow.Throw(Vector3 dir, Vector3 power)
+        {
+            animator.SetTrigger("Attack");
+            animator.SetInteger("AttackType", 2);
+            OnThrow(dir, power);
+        }
+        protected virtual void OnThrow(Vector3 dir, Vector3 power) { }
     }
 }

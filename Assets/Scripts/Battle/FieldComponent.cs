@@ -30,9 +30,9 @@ namespace Battle
         public void Add(IEnemy enemy)
         {
             enemys.Add(enemy);
-            if(isDispose)
+            if (isDispose)
             {
-                if (enemy is ITransform tActor) tActor.transform.gameObject.SetActive(false);
+                if (enemy is IGameObject tActor) tActor.transform.gameObject.SetActive(false);
                 if (enemy is IDisposable disposable) disposable.Dispose();
             }
         }
@@ -59,7 +59,7 @@ namespace Battle
 
             for (int i = 0; i < enemys.Count; i++)
             {
-                if (enemys[i] is ITransform tActor) tActor.transform.gameObject.SetActive(true);
+                if (enemys[i] is IGameObject tActor) tActor.transform.gameObject.SetActive(true);
                 if (enemys[i] is IInitializable initializable) initializable.Initialize();
             }
         }
@@ -83,7 +83,7 @@ namespace Battle
             isDispose = true;
             for (int i = 0; i < enemys.Count; i++)
             {
-                if (enemys[i] is ITransform tActor) tActor.transform.gameObject.SetActive(false);
+                if (enemys[i] is IGameObject tActor) tActor.transform.gameObject.SetActive(false);
                 if (enemys[i] is IDisposable disposable) disposable.Dispose();
             }
         }

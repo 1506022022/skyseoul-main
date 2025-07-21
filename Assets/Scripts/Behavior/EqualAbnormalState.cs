@@ -1,5 +1,4 @@
 using Character;
-using NUnit.Framework;
 using System;
 using Unity.Behavior;
 using UnityEngine;

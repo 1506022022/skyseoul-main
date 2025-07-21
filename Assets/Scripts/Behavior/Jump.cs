@@ -1,10 +1,10 @@
-using System;
-using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
-using Unity.Properties;
 using Battle;
 using Character;
+using System;
+using Unity.Behavior;
+using Unity.Properties;
+using UnityEngine;
+using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Jump", story: "[Actor] jumps", category: "Action/Character", id: "ad666e3bb6e7aef58e1d3aae87dd9354")]

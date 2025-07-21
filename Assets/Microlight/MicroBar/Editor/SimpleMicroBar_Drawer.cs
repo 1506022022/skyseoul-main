@@ -24,7 +24,7 @@ namespace Microlight.MicroBar
             totalHeight += CanvasWarningHeight(property);
             totalHeight += FadeLineHeight();
             totalHeight += ColorsHeight(property);
-            if(isAnimated)
+            if (isAnimated)
             {
                 totalHeight += FadeLineHeight();
                 totalHeight += GhostBarHeight(property); // Ghost bar
@@ -51,7 +51,7 @@ namespace Microlight.MicroBar
             position = DrawCanvasWarning(position, property);
             position = DrawFadeLine(position);
             position = DrawColors(position, property);
-            if(isAnimated)
+            if (isAnimated)
             {
                 position = DrawFadeLine(position);
                 position = DrawGhostBar(position, property);
@@ -70,7 +70,7 @@ namespace Microlight.MicroBar
             SerializedProperty isAnimatedProperty = property.FindPropertyRelative("_isAnimated");
             SerializedProperty backgroundProperty;
             SerializedProperty primaryBarProperty;
-            if(renderTypeProperty.enumValueIndex == (int)RenderType.Image)
+            if (renderTypeProperty.enumValueIndex == (int)RenderType.Image)
             {
                 backgroundProperty = property.FindPropertyRelative("_uiBackground");
                 primaryBarProperty = property.FindPropertyRelative("_uiPrimaryBar");
@@ -98,7 +98,7 @@ namespace Microlight.MicroBar
 
             position = MicroEditor_DrawUtility.DrawBoldLabel(position, "Colors", true);
             position = MicroEditor_DrawUtility.DrawProperty(position, adaptiveColorProperty, new GUIContent("Adaptive color", "When on, health bar changes color based on % of fill"));
-            if(adaptiveColor)
+            if (adaptiveColor)
             {
                 SerializedProperty barAdaptiveColorProperty = property.FindPropertyRelative("_barAdaptiveColor");
 
@@ -115,7 +115,7 @@ namespace Microlight.MicroBar
         Rect DrawGhostBar(Rect position, SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return position;
             }
@@ -125,7 +125,7 @@ namespace Microlight.MicroBar
 
             position = MicroEditor_DrawUtility.DrawBoldLabel(position, "Ghost Bar", true);
             position = MicroEditor_DrawUtility.DrawProperty(position, useGhostBarProperty, new GUIContent("Ghost bar"));
-            if(useGhostBar)
+            if (useGhostBar)
             {
                 SerializedProperty renderTypeProperty = property.FindPropertyRelative("_renderType");
                 SerializedProperty dualGhostBarsProperty = property.FindPropertyRelative("_dualGhostBars");
@@ -141,7 +141,7 @@ namespace Microlight.MicroBar
                     new GUIContent("Dual ghost bars", "Differently colored ghost bars based on healing or damaging effect"));
 
                 // Renderer
-                if(renderTypeProperty.enumValueIndex == (int)RenderType.Image)
+                if (renderTypeProperty.enumValueIndex == (int)RenderType.Image)
                 {
                     ghostBarProperty = property.FindPropertyRelative("_uiGhostBar");
 
@@ -154,7 +154,7 @@ namespace Microlight.MicroBar
                 position = MicroEditor_DrawUtility.DrawProperty(position, ghostBarProperty, new GUIContent("Bar"));
 
                 // Colors
-                if(dualGhostBars)
+                if (dualGhostBars)
                 {
                     position = MicroEditor_DrawUtility.DrawProperty(position, ghostBarDamageColorProperty, new GUIContent("Hurt color", "Ghost bar color when getting hurt"));
                     position = MicroEditor_DrawUtility.DrawProperty(position, ghostBarHealColorProperty, new GUIContent("Heal color", "Ghost bar color when getting healed"));
@@ -170,7 +170,7 @@ namespace Microlight.MicroBar
         Rect DrawDamageAnimation(Rect position, SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return position;
             }
@@ -185,18 +185,18 @@ namespace Microlight.MicroBar
             position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimProperty, new GUIContent("Animation"));
 
             // None doesnt have any of the variables
-            if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
+            if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimDelayProperty, new GUIContent("Delay"));
             }
-            else if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
+            else if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimDelayProperty, new GUIContent("Delay"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageFlashColorProperty, new GUIContent("Flash color"));
             }
-            else if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
+            else if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, damageAnimStrengthProperty, new GUIContent("Shake strength"));
@@ -207,7 +207,7 @@ namespace Microlight.MicroBar
         Rect DrawHealAnimation(Rect position, SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return position;
             }
@@ -222,18 +222,18 @@ namespace Microlight.MicroBar
             position = MicroEditor_DrawUtility.DrawProperty(position, healAnimProperty, new GUIContent("Animation"));
 
             // None doesnt have any of the variables
-            if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
+            if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimDelayProperty, new GUIContent("Delay"));
             }
-            else if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
+            else if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimDelayProperty, new GUIContent("Delay"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, healFlashColorProperty, new GUIContent("Flash color"));
             }
-            else if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
+            else if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
             {
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimDurationProperty, new GUIContent("Duration"));
                 position = MicroEditor_DrawUtility.DrawProperty(position, healAnimStrengthProperty, new GUIContent("Shake strength"));
@@ -254,16 +254,16 @@ namespace Microlight.MicroBar
             bool needsCanvas = property.FindPropertyRelative("_renderType").enumValueIndex == (int)RenderType.Image;
 
             string message = "";
-            if(!hasCanvas && needsCanvas)
+            if (!hasCanvas && needsCanvas)
             {
                 message = "Rendering is set to 'Image' but there is no 'Canvas' parent.";
             }
-            else if(hasCanvas && !needsCanvas)
+            else if (hasCanvas && !needsCanvas)
             {
                 message = "Rendering is set to 'Sprite' but there is 'Canvas' parent.";
             }
 
-            if(message == "")
+            if (message == "")
             {
                 return position;
             }
@@ -288,59 +288,59 @@ namespace Microlight.MicroBar
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
             bool useGhostBar = property.FindPropertyRelative("_useGhostBar").boolValue;
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return position;   // If its image, we don't need masks
             }
 
             // Primary bar
             SerializedProperty primaryBarProperty = property.FindPropertyRelative("_srPrimaryBar");
-            if(primaryBarProperty.objectReferenceValue == null)
+            if (primaryBarProperty.objectReferenceValue == null)
             {
                 return position;
             }
 
             SpriteRenderer spriteRenderer = (SpriteRenderer)primaryBarProperty.objectReferenceValue;
-            if(spriteRenderer == null)
+            if (spriteRenderer == null)
             {
                 return position;   // This should never happen but okay
             }
 
             SortingGroup spriteGroup = spriteRenderer.GetComponent<SortingGroup>();
-            if(spriteGroup == null)
+            if (spriteGroup == null)
             {
                 position = DrawSortingGroupWarning(spriteRenderer.gameObject.name);
             }
 
             SpriteMask spriteMask = spriteRenderer.GetComponentInChildren<SpriteMask>();
-            if(spriteMask == null)
+            if (spriteMask == null)
             {
                 position = DrawSpriteMaskWarning(spriteRenderer.gameObject.name);
             }
 
             // Ghost bar
-            if(isAnimated && useGhostBar)
+            if (isAnimated && useGhostBar)
             {
                 SerializedProperty ghostBarProperty = property.FindPropertyRelative("_srGhostBar");
-                if(ghostBarProperty.objectReferenceValue == null)
+                if (ghostBarProperty.objectReferenceValue == null)
                 {
                     return position;
                 }
 
                 SpriteRenderer ghostSpriteRenderer = (SpriteRenderer)ghostBarProperty.objectReferenceValue;
-                if(ghostSpriteRenderer == null)
+                if (ghostSpriteRenderer == null)
                 {
                     return position;   // This should never happen but okay
                 }
 
                 SortingGroup ghostSpriteGroup = ghostSpriteRenderer.GetComponent<SortingGroup>();
-                if(ghostSpriteGroup == null)
+                if (ghostSpriteGroup == null)
                 {
                     position = DrawSortingGroupWarning(ghostSpriteRenderer.gameObject.name);
                 }
 
                 SpriteMask ghostSpriteMask = ghostSpriteRenderer.GetComponentInChildren<SpriteMask>();
-                if(ghostSpriteMask == null)
+                if (ghostSpriteMask == null)
                 {
                     position = DrawSpriteMaskWarning(ghostSpriteRenderer.gameObject.name);
                 }
@@ -399,7 +399,7 @@ namespace Microlight.MicroBar
             bool adaptiveColor = property.FindPropertyRelative("_adaptiveColor").boolValue;
 
             float height = MicroEditor_Utility.LineHeight * 3 + MicroEditor_Utility.VerticalSpacing * 3;   // Header label, adaptive color and primary color
-            if(adaptiveColor)
+            if (adaptiveColor)
             {
                 height += MicroEditor_Utility.LineHeight + MicroEditor_Utility.VerticalSpacing;   // Secondary color
             }
@@ -409,7 +409,7 @@ namespace Microlight.MicroBar
         static float GhostBarHeight(SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return 0f;
             }
@@ -418,13 +418,13 @@ namespace Microlight.MicroBar
 
             float height = MicroEditor_Utility.DefaultFieldHeight;   // Ghost bar label
             height += MicroEditor_Utility.DefaultFieldHeight;   // Use ghost bar
-            if(useGhostBar)
+            if (useGhostBar)
             {
                 bool dualGhostBars = property.FindPropertyRelative("_dualGhostBars").boolValue;
                 height += MicroEditor_Utility.DefaultFieldHeight;   // Dual mode
                 height += MicroEditor_Utility.DefaultFieldHeight;   // Renderer
 
-                if(dualGhostBars)
+                if (dualGhostBars)
                 {
                     height += MicroEditor_Utility.DefaultFieldHeight * 2;   // Dual mode, dual line
                 }
@@ -439,7 +439,7 @@ namespace Microlight.MicroBar
         static float DamageAnimationHeight(SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return 0f;
             }
@@ -448,15 +448,15 @@ namespace Microlight.MicroBar
 
             float height = MicroEditor_Utility.DefaultFieldHeight * 2; // Label and animation
 
-            if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
+            if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 2; // Duration and delay
             }
-            else if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
+            else if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 3; // Duration, delay and flash color
             }
-            else if(damageAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
+            else if (damageAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 2; // Duration and shake strength
             }
@@ -466,7 +466,7 @@ namespace Microlight.MicroBar
         static float HealAnimationHeight(SerializedProperty property)
         {
             bool isAnimated = property.FindPropertyRelative("_isAnimated").boolValue;
-            if(!isAnimated)
+            if (!isAnimated)
             {
                 return 0f;
             }
@@ -475,15 +475,15 @@ namespace Microlight.MicroBar
 
             float height = MicroEditor_Utility.DefaultFieldHeight * 2; // Label and animation
 
-            if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
+            if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Fill)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 2; // Duration and delay
             }
-            else if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
+            else if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Flash)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 3; // Duration, delay and flash color
             }
-            else if(healAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
+            else if (healAnimProperty.enumValueIndex == (int)SimpleAnim.Shake)
             {
                 height += MicroEditor_Utility.DefaultFieldHeight * 2; // Duration and shake strength
             }
@@ -500,11 +500,11 @@ namespace Microlight.MicroBar
             bool hasCanvas = HasCanvasParent(property);
             bool needsCanvas = property.FindPropertyRelative("_renderType").enumValueIndex == (int)RenderType.Image;
 
-            if(!hasCanvas && needsCanvas)
+            if (!hasCanvas && needsCanvas)
             {
                 return MicroEditor_Utility.LineHeight * 2 + MicroEditor_Utility.VerticalSpacing * 3;
             }
-            else if(hasCanvas && !needsCanvas)
+            else if (hasCanvas && !needsCanvas)
             {
                 return MicroEditor_Utility.LineHeight * 2 + MicroEditor_Utility.VerticalSpacing * 3;
             }
@@ -519,59 +519,59 @@ namespace Microlight.MicroBar
             bool useGhostBar = property.FindPropertyRelative("_useGhostBar").boolValue;
             float height = 0;
 
-            if((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
+            if ((RenderType)renderTypeProperty.enumValueIndex == RenderType.Image)
             {
                 return height;   // If its image, we don't need masks
             }
 
             // Primary bar
             SerializedProperty primaryBarProperty = property.FindPropertyRelative("_srPrimaryBar");
-            if(primaryBarProperty.objectReferenceValue == null)
+            if (primaryBarProperty.objectReferenceValue == null)
             {
                 return height;
             }
 
             SpriteRenderer spriteRenderer = (SpriteRenderer)primaryBarProperty.objectReferenceValue;
-            if(spriteRenderer == null)
+            if (spriteRenderer == null)
             {
                 return height;   // This should never happen but okay
             }
 
             SortingGroup spriteGroup = spriteRenderer.GetComponent<SortingGroup>();
-            if(spriteGroup == null)
+            if (spriteGroup == null)
             {
                 height += ReturnSpace();
             }
 
             SpriteMask spriteMask = spriteRenderer.GetComponentInChildren<SpriteMask>();
-            if(spriteMask == null)
+            if (spriteMask == null)
             {
                 height += ReturnSpace();
             }
 
             // Ghost bar
-            if(isAnimated && useGhostBar)
+            if (isAnimated && useGhostBar)
             {
                 SerializedProperty ghostBarProperty = property.FindPropertyRelative("_srGhostBar");
-                if(ghostBarProperty.objectReferenceValue == null)
+                if (ghostBarProperty.objectReferenceValue == null)
                 {
                     return height;
                 }
 
                 SpriteRenderer ghostSpriteRenderer = (SpriteRenderer)ghostBarProperty.objectReferenceValue;
-                if(ghostSpriteRenderer == null)
+                if (ghostSpriteRenderer == null)
                 {
                     return height;   // This should never happen but okay
                 }
 
                 SortingGroup ghostSpriteGroup = ghostSpriteRenderer.GetComponent<SortingGroup>();
-                if(ghostSpriteGroup == null)
+                if (ghostSpriteGroup == null)
                 {
                     height += ReturnSpace();
                 }
 
                 SpriteMask ghostSpriteMask = ghostSpriteRenderer.GetComponentInChildren<SpriteMask>();
-                if(ghostSpriteMask == null)
+                if (ghostSpriteMask == null)
                 {
                     height += ReturnSpace();
                 }

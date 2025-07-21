@@ -1,8 +1,8 @@
 namespace Microlight.MicroBar
 {
 #if UNITY_EDITOR
-    using System;
     using Microlight.MicroEditor;
+    using System;
     using UnityEditor;
     using UnityEngine;
 
@@ -18,62 +18,62 @@ namespace Microlight.MicroBar
 
             AnimCommand_Fields fields = new AnimCommand_Fields(property);
             // Header
-            if(fields.header)
+            if (fields.header)
                 totalHeight += HeaderHeight();
             // Execution and effect
-            if(fields.execution)
+            if (fields.execution)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.effect)
+            if (fields.effect)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.execAndEffect)
+            if (fields.execAndEffect)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
             // Duration and delay
-            if(fields.duration)
+            if (fields.duration)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.delay)
+            if (fields.delay)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.durationAndDelay)
+            if (fields.durationAndDelay)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
 
             // Fade line separator
-            if(fields.valuesFadeLine)
+            if (fields.valuesFadeLine)
                 totalHeight += FadeLineHeight();
 
-            if(fields.transformProperty)
+            if (fields.transformProperty)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
 
             // Values
-            if(fields.boolValue)
+            if (fields.boolValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.valueMode)
+            if (fields.valueMode)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.animAxis)
+            if (fields.animAxis)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.intValue)
+            if (fields.intValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.frequencyValue)
+            if (fields.frequencyValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.floatValue)
+            if (fields.floatValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.vector2Value)
+            if (fields.vector2Value)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.vector2Value2Row)
+            if (fields.vector2Value2Row)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight * 2;
-            if(fields.vector3Value)
+            if (fields.vector3Value)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.vector3Value2Row)
+            if (fields.vector3Value2Row)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight * 2;
-            if(fields.colorValue)
+            if (fields.colorValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
-            if(fields.percentValue)
+            if (fields.percentValue)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
 
             // Fade line separator
-            if(fields.extraFadeLine)
+            if (fields.extraFadeLine)
                 totalHeight += FadeLineHeight();
 
             // Additional settings
-            if(fields.ease)
+            if (fields.ease)
                 totalHeight += MicroEditor_Utility.DefaultFieldHeight;
 
             return totalHeight;
@@ -84,60 +84,60 @@ namespace Microlight.MicroBar
 
             AnimCommand_Fields fields = new AnimCommand_Fields(property);
             // Header
-            if(fields.header)
+            if (fields.header)
                 position = DrawHeader(position, property);
             // Execution and effect
-            if(fields.execution)
+            if (fields.execution)
                 position = DrawExecution(position, property);
-            if(fields.effect)
+            if (fields.effect)
                 position = DrawEffect(position, property);
-            if(fields.execAndEffect)
+            if (fields.execAndEffect)
                 position = DrawExecutionAndEffect(position, property);
             // Duration and delay
-            if(fields.duration)
+            if (fields.duration)
                 position = DrawDuration(position, property);
-            if(fields.delay)
+            if (fields.delay)
                 position = DrawDelay(position, property);
-            if(fields.durationAndDelay)
+            if (fields.durationAndDelay)
                 position = DrawDurationAndDelay(position, property);
 
             // Fade line separator
-            if(fields.valuesFadeLine)
+            if (fields.valuesFadeLine)
                 position = DrawFadeLine(position);
 
-            if(fields.transformProperty)
+            if (fields.transformProperty)
                 position = DrawTransformProperty(position, property);
 
-            if(fields.boolValue)
+            if (fields.boolValue)
                 position = DrawBool(position, property, fields.boolLabel, fields.boolTooltip);
-            if(fields.valueMode)
+            if (fields.valueMode)
                 position = DrawValueMode(position, property);
-            if(fields.animAxis)
+            if (fields.animAxis)
                 position = DrawAnimAxis(position, property);
-            if(fields.intValue)
+            if (fields.intValue)
                 position = DrawInt(position, property, fields.intLabel, fields.intTooltip);
-            if(fields.frequencyValue)
+            if (fields.frequencyValue)
                 position = DrawFrequency(position, property, fields.frequencyLabel, fields.frequencyTooltip);
-            if(fields.floatValue)
+            if (fields.floatValue)
                 position = DrawFloat(position, property, fields.floatLabel, fields.floatTooltip);
-            if(fields.vector2Value)
+            if (fields.vector2Value)
                 position = DrawVector2(position, property, fields.vector2Label, fields.vector2Tooltip);
-            if(fields.vector2Value2Row)
+            if (fields.vector2Value2Row)
                 position = DrawVector22Row(position, property, fields.vector2Label, fields.vector2Tooltip);
-            if(fields.vector3Value)
+            if (fields.vector3Value)
                 position = DrawVector3(position, property, fields.vector3Label, fields.vector3Tooltip);
-            if(fields.vector3Value2Row)
+            if (fields.vector3Value2Row)
                 position = DrawVector32Row(position, property, fields.vector3Label, fields.vector3Tooltip);
-            if(fields.colorValue)
+            if (fields.colorValue)
                 position = DrawColor(position, property, fields.colorLabel, fields.colorTooltip);
-            if(fields.percentValue)
+            if (fields.percentValue)
                 position = DrawPercent(position, property, fields.percentLabel, fields.percentTooltip);
 
             // Fade line separator
-            if(fields.extraFadeLine)
+            if (fields.extraFadeLine)
                 position = DrawFadeLine(position);
 
-            if(fields.ease)
+            if (fields.ease)
                 position = DrawEase(position, property);
             EditorGUI.EndProperty();
         }
@@ -346,7 +346,7 @@ namespace Microlight.MicroBar
             string prefix = Enum.GetName(typeof(AnimExecution), executionProperty.enumValueIndex);
             string suffix = Enum.GetName(typeof(AnimEffect), effectProperty.enumValueIndex);
 
-            if((AnimExecution)executionProperty.enumValueIndex == AnimExecution.Wait)
+            if ((AnimExecution)executionProperty.enumValueIndex == AnimExecution.Wait)
             {
                 return prefix;
             }

@@ -1,10 +1,10 @@
-using System;
-using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
-using Unity.Properties;
 using Battle;
 using Character;
+using System;
+using Unity.Behavior;
+using Unity.Properties;
+using UnityEngine;
+using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Sliding", story: "[Actor] slidings", category: "Action/Character", id: "a13d2cdee769a585b12b30892a790bdf")]

@@ -1,9 +1,8 @@
-using UnityEditor;
-using UnityEngine;
 using Character;
 using System.Reflection;
 using Unity.Behavior;
-using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
 
 public class MonsterGnerator : Generator<MonsterGnerator>
 {
@@ -26,7 +25,7 @@ public class MonsterGnerator : Generator<MonsterGnerator>
 
     protected override void InitializePrefab(GameObject go)
     {
-        if(!go.TryGetComponent<BehaviorGraphAgent>(out var bga))
+        if (!go.TryGetComponent<BehaviorGraphAgent>(out var bga))
         {
             bga = go.AddComponent<BehaviorGraphAgent>();
         }

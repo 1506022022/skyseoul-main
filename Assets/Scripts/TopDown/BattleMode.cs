@@ -1,15 +1,15 @@
 ﻿using Battle;
+using Character;
+using Cysharp.Threading.Tasks;
+using Entity;
 using FieldEditorTool;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using System.Reflection;
-using Util;
-using Entity;
-using Cysharp.Threading.Tasks;
-using Character;
 using Unity.VisualScripting;
+using UnityEngine;
+using Util;
 
 namespace TopDown
 {
@@ -55,8 +55,7 @@ namespace TopDown
                 Loader<GameObject, IPlayable>.GetLoader(nameof(IPlayable)),
                 Loader<GameObject, IProp>.GetLoader(nameof(IProp)),
                 Loader<GameObject, SkillComponent>.GetLoader(nameof(Skill)),
-                new SceneLoader(MapType.BattleMap.ToString()),
-                new JsonSceneLoader(MapType.BattleMap.ToString())
+                new SceneLoader(MapType.BattleMap.ToString())
             };
             resourceLoader.Initialize(loaders);
             resourceLoader.Load();
@@ -115,7 +114,7 @@ namespace TopDown
                 Debug.LogWarning($"load fail: {modeSet.PlayableCharacterID.ToString("D10")}");
                 return;
             }
-            if (cache is ITransform transform)
+            if (cache is IGameObject transform)
             {
                 var origin = transform.transform.gameObject;
                 var pos = entry.gameObject.transform.position;
@@ -199,7 +198,7 @@ namespace TopDown
         void DisposeActor(IActor actor)
         {
             battle.DisposeCharacter(actor);
-            if (actor is ITransform tActor)
+            if (actor is IGameObject tActor)
             {
                 float delay = actor is IDeathable deathable ? Mathf.Max(3, deathable.DeathDuration) : 0f;
                 GameObject.Destroy(tActor.transform.gameObject, delay);
@@ -239,15 +238,15 @@ namespace TopDown
             GameObject cache = null;
             if (enemyDB.LoadedResources.TryGetValue(actorData.Name, out var enemy))
             {
-                cache = (enemy as ITransform)?.transform.gameObject;
+                cache = (enemy as IGameObject)?.transform.gameObject;
             }
             else if (pcDB.LoadedResources.TryGetValue(actorData.Name, out var pc))
             {
-                cache = (pc as ITransform)?.transform.gameObject;
+                cache = (pc as IGameObject)?.transform.gameObject;
             }
             else if (propDB.LoadedResources.TryGetValue(actorData.Name, out var prop))
             {
-                cache = (prop as ITransform)?.transform.gameObject;
+                cache = (prop as IGameObject)?.transform.gameObject;
             }
             if (cache == null)
             {
@@ -260,7 +259,7 @@ namespace TopDown
                 return null;
             }
 
-            if (actor is ITransform transform)
+            if (actor is IGameObject transform)
             {
                 transform.transform.position = actorData.Position;
                 transform.transform.eulerAngles = actorData.Rotation;

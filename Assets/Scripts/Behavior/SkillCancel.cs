@@ -1,9 +1,9 @@
+using Character;
 using System;
 using Unity.Behavior;
+using Unity.Properties;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
-using Unity.Properties;
-using Character;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "SkillCancel", story: "[actor] cancel the skill", category: "Action/Skill", id: "ecf7eb4cf55473b5964ab7822ad38ecc")]

@@ -44,6 +44,8 @@ namespace Battle
         {
             view?.UpdateView();
         }
+
+#if UNITY_EDITOR
         protected override void OnDrawGizmosSelected()
         {
             base.OnDrawGizmosSelected();
@@ -58,5 +60,6 @@ namespace Battle
                 movement.SlidePower = this.SlidePower;
             }
         }
+#endif
     }
 }

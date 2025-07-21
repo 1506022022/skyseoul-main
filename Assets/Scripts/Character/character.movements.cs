@@ -1,7 +1,7 @@
-using UnityEngine.ResourceManagement;
+using Battle;
 using UnityEngine;
 using UnityEngine.AI;
-using Battle;
+using UnityEngine.ResourceManagement;
 
 namespace Character
 {
@@ -14,7 +14,7 @@ namespace Character
 
         void IMove.SetActor(IActor actor)
         {
-            if (actor is not ITransform gameObject || !gameObject.transform.TryGetComponent<NavMeshAgent>(out var agent))
+            if (actor is not IGameObject gameObject || !gameObject.transform.TryGetComponent<NavMeshAgent>(out var agent))
             {
                 return;
             }
@@ -62,7 +62,7 @@ namespace Character
 
         void IMove.SetActor(IActor actor)
         {
-            if (actor is not ITransform gameObject || !gameObject.transform.TryGetComponent<NavMeshAgent>(out var agent))
+            if (actor is not IGameObject gameObject || !gameObject.transform.TryGetComponent<NavMeshAgent>(out var agent))
             {
                 Debug.LogWarning($"Actor is not NavMeshAgent");
                 return;
@@ -112,7 +112,7 @@ namespace Character
 
         void IMove.SetActor(IActor actor)
         {
-            if (actor is not ITransform gameObejct || !gameObejct.transform.TryGetComponent<NavMeshAgent>(out var agent))
+            if (actor is not IGameObject gameObejct || !gameObejct.transform.TryGetComponent<NavMeshAgent>(out var agent))
             {
                 return;
             }
@@ -148,7 +148,7 @@ namespace Character
 
         void IMove.SetActor(IActor actor)
         {
-            if (actor is not ITransform gameObject)
+            if (actor is not IGameObject gameObject)
             {
                 return;
             }
@@ -162,7 +162,7 @@ namespace Character
         void IUpdateReceiver.Update(float unscaledDeltaTime)
         {
             if (actorTransform == null) return;
-            if (!groundCheckable.IsGrounded) actorTransform.transform.position += Physics.gravity * unscaledDeltaTime /2f;
+            if (!groundCheckable.IsGrounded) actorTransform.transform.position += Physics.gravity * unscaledDeltaTime / 2f;
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Battle
         }
         protected override void OnDie()
         {
-           Play(STATE_DIE);
+            Play(STATE_DIE);
         }
         protected override void OnUse()
         {

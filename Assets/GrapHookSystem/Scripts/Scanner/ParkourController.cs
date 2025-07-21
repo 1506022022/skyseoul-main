@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +22,7 @@ public class ParkourController : MonoBehaviour
     public Vector3 hudPoint;
     public AnimationCurve movementCurve;
 
-    public Action<Vector3,Vector3,float> OnZipMove;
+    public Action<Vector3, Vector3, float> OnZipMove;
 
     public Image zipMoveHud;
 
@@ -45,9 +42,9 @@ public class ParkourController : MonoBehaviour
         {
             zipMoveHud.enabled = true;
             MoveToWorldPosition(hudPoint);
-            
 
-            if(Input.GetKeyDown(KeyCode.F))
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 canZip = false;
                 OnZipMove?.Invoke(transform.position, AdjustedZipPoint, 1);
@@ -102,9 +99,9 @@ public class ParkourController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-       if(Application.isPlaying)
+        if (Application.isPlaying)
         {
-            if(canZip)
+            if (canZip)
                 DrawSphere(zipPoint + Vector3.up);
         }
     }
@@ -150,7 +147,7 @@ public class ParkourController : MonoBehaviour
     public IEnumerator MoveBetweenPoints(Vector3 start, Vector3 end, float time)
     {
         float elapsedTime = 0f;
-        while(elapsedTime <time)
+        while (elapsedTime < time)
         {
             elapsedTime += Time.deltaTime;
 
@@ -171,6 +168,6 @@ public class ParkourController : MonoBehaviour
     public void MoveToWorldPosition(Vector3 target)
     {
         zipMoveHud.transform.position = scanner.cam.WorldToScreenPoint(target);
-       
+
     }
 }

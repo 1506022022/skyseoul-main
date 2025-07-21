@@ -1,10 +1,10 @@
-using System;
-using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
-using Unity.Properties;
 using Battle;
 using Character;
+using System;
+using Unity.Behavior;
+using Unity.Properties;
+using UnityEngine;
+using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Move", story: "[Actor] moves with [direction] and [power]", category: "Character/Action", id: "1407a7ac9ad91fd9bc2146d9c11008b3")]

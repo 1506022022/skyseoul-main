@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using UnityEngine;
 using UnityEngine.AI;
+using Action = Unity.Behavior.Action;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "AutoWaypoints", story: "get [waypoints] by [actor]", category: "Action", id: "5f0681f34dbb5efc5b06f7b6213360da")]

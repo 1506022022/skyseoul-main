@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ConditionNode : BaseNode
 {
     public ConditionNode(int guid) : base(guid)

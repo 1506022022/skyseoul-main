@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,7 +32,7 @@ namespace Battle
             _interaction = new Interaction(_boxCollider.bounds);
             _interaction.OnStart += _onInteraction.Invoke;
 
-             
+
         }
 
         private void OnDestroy()

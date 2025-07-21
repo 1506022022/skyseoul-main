@@ -1,6 +1,5 @@
 using Character;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 namespace Battle
@@ -77,16 +76,10 @@ namespace Battle
             StartCoroutine(HitAnim());
 
             if (Skill == null) return;
-            if (!IsPrefabInstance(Skill.gameObject)) Skill = GameObject.Instantiate(Skill);
+            Skill = GameObject.Instantiate(Skill);
             Skill.transform.position = transform.position + SkillOffset;
             Skill.transform.eulerAngles = transform.eulerAngles + SkillRotation;
             Skill.Fire();
-        }
-
-        bool IsPrefabInstance(GameObject obj)
-        {
-            return PrefabUtility.GetPrefabInstanceStatus(obj) == PrefabInstanceStatus.Connected ||
-                   PrefabUtility.GetPrefabInstanceStatus(obj) == PrefabInstanceStatus.Disconnected;
         }
 
         float duration = 0.5f;

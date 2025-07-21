@@ -2,7 +2,6 @@ using Character;
 using System;
 using Unity.Behavior;
 using UnityEngine;
-using UnityEngine.WSA;
 
 [Serializable, Unity.Properties.GeneratePropertyBag]
 [Condition(name: "TryGetInputInt", story: "TryGet [input] out [value]", category: "Input", id: "541580397f43551ee9522019dbf2bb88")]

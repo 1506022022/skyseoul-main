@@ -40,7 +40,7 @@ namespace Battle
         /// <param name="duration"></param>
         public Lerp SetDuration(float duration)
         {
-            _duration = Mathf.Max(duration,0f);
+            _duration = Mathf.Max(duration, 0f);
             return this;
         }
         private IEnumerator UpdateLerp()

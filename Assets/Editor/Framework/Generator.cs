@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using System.Linq;
-using UnityEditor.AddressableAssets.Settings;
-using UnityEditor.AddressableAssets;
 using UnityEditor;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
-using Battle;
 
 public abstract class Generator<T> : ScriptableWizard
 {
@@ -24,7 +23,7 @@ public abstract class Generator<T> : ScriptableWizard
     }
     protected void OnWizardOtherButton()
     {
-        
+
     }
     public void GeneratePrefab(Generator<T> generator)
     {

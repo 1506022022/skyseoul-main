@@ -2,12 +2,14 @@ using Microlight.MicroEditor;
 using UnityEditor;
 using UnityEngine;
 
-namespace Microlight.MicroBar {
+namespace Microlight.MicroBar
+{
 #if UNITY_EDITOR
     // ****************************************************************************************************
     // Stores instructions on how to draw the AnimCommand drawer
     // ****************************************************************************************************
-    internal class AnimCommand_Fields {
+    internal class AnimCommand_Fields
+    {
         internal bool header = false;
         internal bool execution = false;
         internal bool effect = false;
@@ -52,15 +54,18 @@ namespace Microlight.MicroBar {
         internal bool valuesFadeLine = false;
         internal bool extraFadeLine = false;
 
-        internal AnimCommand_Fields(SerializedProperty property) {
+        internal AnimCommand_Fields(SerializedProperty property)
+        {
             header = true;
             execution = true;
             duration = true;
 
             #region Execution
-            if(execution) {
+            if (execution)
+            {
                 SerializedProperty executionProperty = property.FindPropertyRelative("execution");
-                switch((AnimExecution)executionProperty.enumValueIndex) {
+                switch ((AnimExecution)executionProperty.enumValueIndex)
+                {
                     case AnimExecution.Sequence:
                         effect = true;
                         delay = true;
@@ -85,7 +90,8 @@ namespace Microlight.MicroBar {
             #endregion
 
             #region Effects
-            if(effect) {
+            if (effect)
+            {
                 delay = true;
                 ease = true;
                 valueMode = true;
@@ -98,19 +104,23 @@ namespace Microlight.MicroBar {
 
                 bool startingOrDefault = (ValueMode)valueModeProperty.enumValueIndex == ValueMode.StartingValue || (ValueMode)valueModeProperty.enumValueIndex == ValueMode.DefaultValue;
 
-                switch((AnimEffect)effectProperty.enumValueIndex) {
+                switch ((AnimEffect)effectProperty.enumValueIndex)
+                {
                     case AnimEffect.Color:
-                        if(!startingOrDefault) {
+                        if (!startingOrDefault)
+                        {
                             colorValue = true;
                             colorLabel = "Color";
                         }
                         break;
                     case AnimEffect.Fade:
-                        if((ValueMode)valueModeProperty.enumValueIndex == ValueMode.Absolute) {
+                        if ((ValueMode)valueModeProperty.enumValueIndex == ValueMode.Absolute)
+                        {
                             percentValue = true;
                             percentLabel = "Fade";
                         }
-                        else if(!startingOrDefault) {
+                        else if (!startingOrDefault)
+                        {
                             floatValue = true;
                             floatLabel = "Fade";
                         }
@@ -120,13 +130,16 @@ namespace Microlight.MicroBar {
                         boolLabel = "Custom";
                         boolTooltip = "If turned off, image will animate to the current health value\nTurning custom on, let's user choose fill amount manually";
                         valueMode = false;
-                        if(boolValueProperty.boolValue) {
+                        if (boolValueProperty.boolValue)
+                        {
                             valueMode = true;
-                            if((ValueMode)valueModeProperty.enumValueIndex == ValueMode.Absolute) {
+                            if ((ValueMode)valueModeProperty.enumValueIndex == ValueMode.Absolute)
+                            {
                                 percentValue = true;
                                 percentLabel = "Fill";
                             }
-                            else if(!startingOrDefault) {
+                            else if (!startingOrDefault)
+                            {
                                 floatValue = true;
                                 floatLabel = "Fill";
                             }
@@ -134,27 +147,33 @@ namespace Microlight.MicroBar {
                         break;
                     case AnimEffect.Move:
                         animAxis = true;
-                        if(!startingOrDefault) {
-                            if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY) {
+                        if (!startingOrDefault)
+                        {
+                            if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY)
+                            {
                                 vector2Value = true;
                                 vector2Label = "Axis";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X)
+                            {
                                 floatValue = true;
                                 floatLabel = "X";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y)
+                            {
                                 floatValue = true;
                                 floatLabel = "Y";
                             }
-                            else {
+                            else
+                            {
                                 floatValue = true;
                                 floatLabel = "XY";
                             }
                         }
                         break;
                     case AnimEffect.Rotate:
-                        if(!startingOrDefault) {
+                        if (!startingOrDefault)
+                        {
                             floatValue = true;
                             floatLabel = "Angle";
                             floatTooltip = "Animate to the desired angle on Z axis (degrees)";
@@ -162,20 +181,25 @@ namespace Microlight.MicroBar {
                         break;
                     case AnimEffect.Scale:
                         animAxis = true;
-                        if(!startingOrDefault) {
-                            if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY) {
+                        if (!startingOrDefault)
+                        {
+                            if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY)
+                            {
                                 vector2Value = true;
                                 vector2Label = "Axis";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X)
+                            {
                                 floatValue = true;
                                 floatLabel = "X";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y)
+                            {
                                 floatValue = true;
                                 floatLabel = "Y";
                             }
-                            else {
+                            else
+                            {
                                 floatValue = true;
                                 floatLabel = "XY";
                             }
@@ -184,11 +208,13 @@ namespace Microlight.MicroBar {
                     case AnimEffect.Punch:
                         transformProperty = true;
                         valueMode = false;
-                        if((TransformProperties)transformPropertyProperty.enumValueIndex == TransformProperties.Rotation) {
+                        if ((TransformProperties)transformPropertyProperty.enumValueIndex == TransformProperties.Rotation)
+                        {
                             floatValue = true;
                             floatLabel = "Strength";
                         }
-                        else {
+                        else
+                        {
                             vector2Value = true;
                             vector2Label = "Strength";
                         }
@@ -211,20 +237,25 @@ namespace Microlight.MicroBar {
                         break;
                     case AnimEffect.AnchorMove:
                         animAxis = true;
-                        if(!startingOrDefault) {
-                            if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY) {
+                        if (!startingOrDefault)
+                        {
+                            if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.XY)
+                            {
                                 vector2Value = true;
                                 vector2Label = "Axis";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.X)
+                            {
                                 floatValue = true;
                                 floatLabel = "X";
                             }
-                            else if((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y) {
+                            else if ((AnimAxis)animAxisProperty.enumValueIndex == AnimAxis.Y)
+                            {
                                 floatValue = true;
                                 floatLabel = "Y";
                             }
-                            else {
+                            else
+                            {
                                 floatValue = true;
                                 floatLabel = "XY";
                             }
@@ -238,21 +269,25 @@ namespace Microlight.MicroBar {
             #endregion
 
             #region Combine fields
-            if(EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold && execution && effect) {
+            if (EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold && execution && effect)
+            {
                 execution = false;
                 effect = false;
                 execAndEffect = true;
             }
-            if(EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold && duration && delay) {
+            if (EditorGUIUtility.currentViewWidth > MicroEditor_Utility.SingleRowThreshold && duration && delay)
+            {
                 duration = false;
                 delay = false;
                 durationAndDelay = true;
             }
-            if(EditorGUIUtility.currentViewWidth <= MicroEditor_Utility.UnityTwoRowsThreshold && vector2Value) {
+            if (EditorGUIUtility.currentViewWidth <= MicroEditor_Utility.UnityTwoRowsThreshold && vector2Value)
+            {
                 vector2Value = false;
                 vector2Value2Row = true;
             }
-            if(EditorGUIUtility.currentViewWidth <= MicroEditor_Utility.UnityTwoRowsThreshold && vector3Value) {
+            if (EditorGUIUtility.currentViewWidth <= MicroEditor_Utility.UnityTwoRowsThreshold && vector3Value)
+            {
                 vector3Value = false;
                 vector3Value2Row = true;
             }
