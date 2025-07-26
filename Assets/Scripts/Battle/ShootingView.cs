@@ -77,7 +77,8 @@ namespace Battle
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
             Vector3 desiredPosition = _body.position + rotation * offset.normalized * distance;
 
-            _currentView.GetComponent<CinemachineRotationComposer>().Composition.ScreenPosition.y = (pitch / 60) * -1.5f;
+            if (_currentView.TryGetComponent<CinemachineRotationComposer>(out var composer))
+                composer.Composition.ScreenPosition.y = (pitch / 60) * -1.5f;
 
             _currentView.transform.position = desiredPosition;
             _currentView.transform.LookAt(_body.position + Vector3.up * 1.5f);

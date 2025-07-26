@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -104,7 +105,13 @@ namespace TopDown
 
         public async override void Load()
         {
-            var asyncOp = SceneManager.LoadSceneAsync(Locator);
+            await Task.Run(LoadAsync);
+        }
+
+
+        async void LoadAsync()
+        {
+            var asyncOp = SceneManager.LoadSceneAsync(Locator, LoadSceneMode.Additive);
             asyncOp.allowSceneActivation = false;
             while (asyncOp.progress < 0.9f)
             {

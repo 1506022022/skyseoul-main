@@ -27,11 +27,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Skill
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 28eaf5a2f7c444f41bd879cc256d363c
-    m_Address: "Assets/0. \uC791\uC5C5/SceneAdditive/SceneLoader/Scene/Cube (3).prefab"
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b2a3c1b59d3a3940a43b47c949fc2d1
     m_Address: "Assets/0. \uC791\uC5C5/\uC804\uD22C/2000000000.prefab"
     m_ReadOnly: 0
@@ -175,6 +170,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - FieldComponent
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc14a29f218c65d4bafc637bc60519ce
+    m_Address: Assets/Runtime/Monster/2100000005.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - IEnemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe0bf28b895e2d54db10b5c3452ec5e3
     m_Address: Assets/Runtime/Monster/2100000000.prefab

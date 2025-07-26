@@ -47,4 +47,9 @@ namespace Character
     {
         void Throw(Vector3 dir, Vector3 power);
     }
+    public interface IAlert
+    {
+        void Alert();
+        void Release();
+    }
 }

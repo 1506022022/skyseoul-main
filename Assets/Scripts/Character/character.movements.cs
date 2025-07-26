@@ -42,11 +42,11 @@ namespace Character
             var dir = direction;
             SetDirOfForward(ref dir);
             agent.Move(dir * strength * unscaledDeltaTime);
+            //Debug.Log($"{strength} {direction}  {dir}");
         }
         void SetDirOfForward(ref Vector3 dir)
         {
             if (actorTransform == null) return;
-
             var @base = actorTransform.transform;
             dir = @base.forward * dir.z + @base.right * dir.x;
             dir.y = 0;
@@ -96,8 +96,9 @@ namespace Character
         }
         void IUpdateReceiver.Update(float unscaledDeltaTime)
         {
+            if (actorTransform is null) return;
             agent.updatePosition = groundCheckable.IsGrounded;
-            if (actorTransform is null || strength == 0) return;
+            if (strength == 0) return;
             strength = groundCheckable.IsGrounded ? 0 : strength;
         }
     }

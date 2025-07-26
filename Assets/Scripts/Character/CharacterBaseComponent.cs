@@ -93,7 +93,7 @@ namespace Character
                 var strength = walkStrength.GetStrength();
                 if (0.5f < strength)
                 {
-                    animator.SetFloat("MoveSpeed", strength);
+                    animator.SetFloat("MoveSpeed", Mathf.Clamp(strength, 0, 1.5f));
                 }
                 else
                 {

@@ -2740,6 +2740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365674471636964010}
   - component: {fileID: 4396515896458142225}
+  - component: {fileID: 2118459253889690642}
   m_Layer: 0
   m_Name: Wide View
   m_TagString: Untagged
@@ -2807,6 +2808,32 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &2118459253889690642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854301401690700576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625c14eee3ad46c99df7c7c891ef668a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damping: {x: 0.1, y: 0.5, z: 0.3}
+  ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
+  VerticalArmLength: 0.4
+  CameraSide: 1
+  CameraDistance: 2
+  AvoidObstacles:
+    Enabled: 0
+    CollisionFilter:
+      serializedVersion: 2
+      m_Bits: 1
+    IgnoreTag: 
+    CameraRadius: 0.2
+    DampingIntoCollision: 0
+    DampingFromCollision: 0.5
 --- !u!1 &6035360181390374188
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,7 +3380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7738576986740811307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3419,7 +3446,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8977343241942287970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3448,6 +3475,8 @@ GameObject:
   - component: {fileID: 2173847157771501301}
   - component: {fileID: 6244328998821581939}
   - component: {fileID: 4427282151560453413}
+  - component: {fileID: 8193584961586512788}
+  - component: {fileID: 6557685303847791482}
   m_Layer: 0
   m_Name: 2000000003
   m_TagString: Player
@@ -3488,7 +3517,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2682018231920405870}
   body: {fileID: 2727668470065056007}
-  initOnEnable: 0
+  hp:
+    maxValue: 1
+  groundChecker: {fileID: 8193584961586512788}
+  initOnEnable: 1
   gun: {fileID: 9209540998678126062}
   wideCam: {fileID: 4396515896458142225}
   zoomInCam: {fileID: 5890333900292250155}
@@ -3514,6 +3546,74 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8193584961586512788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073143194174907872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fe6bb583b603a44929a20f22ce9509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  distance: 0.1
+  radius: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &6557685303847791482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073143194174907872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -7633380018473413163, guid: c0afb8dcf16c11746b4f4f55cfbf96d9,
+    type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 8244193758569038719
+  - rid: 8244193758569038726
+  - rid: 8244193758569038727
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8244193758569038719
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 7073143194174907872}
+    - rid: 8244193758569038726
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14396942886852846121
+          m_Value1: 18406973226351965960
+        Name: walkSpeed
+        m_Value: 1
+    - rid: 8244193758569038727
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 18251287135571797377
+          m_Value1: 14566159298641838424
+        Name: runSpeed
+        m_Value: 2
 --- !u!1 &7276267978170685191
 GameObject:
   m_ObjectHideFlags: 0

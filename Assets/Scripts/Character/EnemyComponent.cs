@@ -2,7 +2,6 @@ using Battle;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Battle.AttackBox;
 
 namespace Character
 {
