@@ -1,4 +1,5 @@
 using Character;
+using GameUI;
 using UnityEngine;
 using Util;
 
@@ -12,7 +13,7 @@ namespace Battle
         {
             Initialize();
         }
-
+      
         public void Initialize()
         {
             BattleController = new BattleController();

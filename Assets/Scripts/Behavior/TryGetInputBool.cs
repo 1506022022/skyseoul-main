@@ -18,6 +18,8 @@ public partial class TryGetInputBool : Condition
                 return PlayerInput.IsInputJump();
             case PcInputBool.Sliding:
                 return PlayerInput.IsInputSlide();
+            case PcInputBool.MainMenu:
+;                return PlayerInput.IsInputEscape();
             default:
                 return false;
         }

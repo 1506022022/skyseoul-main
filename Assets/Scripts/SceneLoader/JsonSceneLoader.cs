@@ -6,23 +6,31 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
 using System.Linq;
 using System.Threading;
+using System.Security.Cryptography;
+using TopDown;
+using GameUI;
 
 
 namespace SceneLoad
 {
     public class JsonSceneLoader : TopDown.Loader
     {
-
-        private CancellationTokenSource _cancellationTokenSource;
-        private readonly List<AsyncOperationHandle> _handles = new();
-        private readonly List<GameObject> _instantiatedObjects = new();
-        private readonly Dictionary<int, GameObject> _instantiatedObjectsById = new();
-        private readonly Dictionary<string, GameObject> _prefabCache = new();
+        CancellationTokenSource _cancellationTokenSource;
+        readonly List<AsyncOperationHandle> _handles = new();
+        readonly List<GameObject> _instantiatedObjects = new();
+        readonly Dictionary<int, GameObject> _instantiatedObjectsById = new();
+        readonly Dictionary<string, GameObject> _prefabCache = new();
 
         public JsonSceneLoader(string name)
         {
             SettingLocator(name);
+         #if UNITY_EDITOR
+            AttachEditorSafeHelper();
+         #endif
         }
+
+       
+
         public void SettingLocator(string sceneName)
         {
             Locator = sceneName;
@@ -35,7 +43,7 @@ namespace SceneLoad
 
 
 
-        private async Task LoadAsync()
+        async Task LoadAsync()
         {
             await Addressables.InitializeAsync().Task;
             _cancellationTokenSource = new CancellationTokenSource();
@@ -82,12 +90,12 @@ namespace SceneLoad
             InvokeOnSuccess();
         }
 
-        private Transform GetParent(int id)
+        Transform GetParent(int id)
         {
             return _instantiatedObjectsById.TryGetValue(id, out var parentObject) ? parentObject.transform : null;
         }
 
-        private async Task<string> ReadJsonAsync(string key)
+        async Task<string> ReadJsonAsync(string key)
         {
             var handle = Addressables.LoadAssetAsync<TextAsset>(key);
             _handles.Add(handle);
@@ -95,7 +103,7 @@ namespace SceneLoad
             return handle.Status == AsyncOperationStatus.Succeeded ? handle.Result.text : null;
         }
 
-        private List<SceneObjectData> DeserializeJson(string json)
+        List<SceneObjectData> DeserializeJson(string json)
         {
             try
             {
@@ -109,7 +117,7 @@ namespace SceneLoad
             }
         }
 
-        private async Task PreloadPrefabs(List<SceneObjectData> dataList, CancellationToken token)
+        async Task PreloadPrefabs(List<SceneObjectData> dataList, CancellationToken token)
         {
             var addresses = dataList
                 .Where(d => !string.IsNullOrEmpty(d.PrefabAddress))
@@ -145,7 +153,7 @@ namespace SceneLoad
             await Task.WhenAll(preloadTasks);
         }
 
-        private async Task<GameObject> InstantiatePrefab(SceneObjectData data, Transform parent, CancellationToken token)
+        async Task<GameObject> InstantiatePrefab(SceneObjectData data, Transform parent, CancellationToken token)
         {
             if (token.IsCancellationRequested) return null;
 
@@ -185,7 +193,7 @@ namespace SceneLoad
             return instance;
         }
 
-        private async Task<GameObject> InstantiatePrefabObject(SceneObjectData data, CancellationToken token)
+        async Task<GameObject> InstantiatePrefabObject(SceneObjectData data, CancellationToken token)
         {
             if (_prefabCache.TryGetValue(data.PrefabAddress, out var prefab))
             {
@@ -211,7 +219,7 @@ namespace SceneLoad
             }
         }
 
-        private GameObject FindContainer(SceneObjectData data, Transform parent)
+        GameObject FindContainer(SceneObjectData data, Transform parent)
         {
             if (_instantiatedObjectsById.TryGetValue(data.parentID, out var parentObj) && data.SiblingIndex >= 0)
             {
@@ -224,7 +232,7 @@ namespace SceneLoad
             return null;
         }
 
-        private void ApplyTransform(Transform transform, SceneObjectData data)
+        void ApplyTransform(Transform transform, SceneObjectData data)
         {
             transform.localPosition = data.Position;
             transform.localRotation = data.Rotation;
@@ -237,41 +245,91 @@ namespace SceneLoad
             CancelLoading();
             ReleaseInstantiatedObjects();
             ReleaseLoadedAssets();
-            if (_instantiatedObjectsById != null)
-                _instantiatedObjectsById.Clear();
 
-
+            _instantiatedObjectsById?.Clear();
+            _prefabCache?.Clear();
         }
 
-        private void CancelLoading()
+        void CancelLoading()
         {
-            if (_cancellationTokenSource is { IsCancellationRequested: false })
+            if (_cancellationTokenSource != null)
             {
-                _cancellationTokenSource.Cancel();
-                _cancellationTokenSource.Dispose();
-                _cancellationTokenSource = null;
+                try
+                {
+                    if (!_cancellationTokenSource.IsCancellationRequested)
+                        _cancellationTokenSource.Cancel();
+                }
+                catch (ObjectDisposedException) { }
+                finally
+                {
+                    try { _cancellationTokenSource.Dispose(); }
+                    catch { }
+                    _cancellationTokenSource = null;
+                }
             }
         }
 
         public void ReleaseInstantiatedObjects()
         {
-            foreach (var obj in _instantiatedObjects)
+            for (int i = _instantiatedObjects.Count - 1; i >= 0; i--)
             {
-                if (obj != null)
-                    Addressables.ReleaseInstance(obj);
+                var obj = _instantiatedObjects[i];
+                if (obj == null) continue;
+
+                try
+                {
+                    if (Addressables.ResourceManager != null)
+                        Addressables.ReleaseInstance(obj);
+                    else
+                        GameObject.Destroy(obj);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning($"[JsonSceneLoader] ReleaseInstance 실패: {e.Message}");
+                }
             }
             _instantiatedObjects.Clear();
         }
 
-        private void ReleaseLoadedAssets()
+        void ReleaseLoadedAssets()
         {
-            foreach (var handle in _handles)
+            for (int i = _handles.Count - 1; i >= 0; i--)
             {
-                if (handle.IsValid() && handle.Status == AsyncOperationStatus.Succeeded)
-                    Addressables.Release(handle);
+                var handle = _handles[i];
+                try
+                {
+                    if (handle.IsValid())
+                    {
+                        if (handle.Status == AsyncOperationStatus.Succeeded)
+                            Addressables.Release(handle);
+                        else
+                            Addressables.Release(handle); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"[JsonSceneLoader] Release 핸들 예외: {ex.Message}");
+                }
             }
             _handles.Clear();
         }
+
+        #endregion
+
+        #region  UnityEditor
+        void AttachEditorSafeHelper()
+        {
+            var existing = GameObject.Find(nameof(JsonSceneLoaderEditorSafe));
+            if (existing != null) return;
+
+           
+            var safeGo = new GameObject(nameof(JsonSceneLoaderEditorSafe));
+            UnityEngine.Object.DontDestroyOnLoad(safeGo);
+
+            var safeComp = safeGo.AddComponent<GameUI.JsonSceneLoaderEditorSafe>();
+            safeComp.SetLoader(this);
+        }
         #endregion
     }
+
 }

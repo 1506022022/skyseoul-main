@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd889bebce51464783ada65a76c7225, type: 3}
+  m_Name: Default KeyBindingData
+  m_EditorClassIdentifier: 
+  keyBinds:
+  - actionName: "\uC804\uC9C4"
+    key: 119
+  - actionName: "\uD6C4\uC9C4"
+    key: 115
+  - actionName: "\uC67C\uCABD\uC774\uB3D9"
+    key: 97
+  - actionName: "\uC624\uB978\uCABD\uC774\uB3D9"
+    key: 100
+  - actionName: "\uD68C\uD53C"
+    key: 32
+  - actionName: "\uC810\uD504"
+    key: 32
+  - actionName: "\uC6C5\uD06C\uB9AC\uAE30"
+    key: 32
+  - actionName: "\uC0C1\uD638\uC791\uC6A9"
+    key: 101
+  - actionName: "\uC778\uBCA4\uD1A0\uB9AC"
+    key: 32
+  - actionName: "\uC18C\uBAA8\uD4881"
+    key: 32
+  - actionName: "\uC18C\uBAA8\uD4882"
+    key: 32
+  - actionName: "\uC18C\uBAA8\uD4883"
+    key: 32
+  - actionName: "\uC18C\uBAA8\uD4884"
+    key: 32
+  - actionName: "\uB85C\uBD07\uBCC0\uACBD1"
+    key: 32
+  - actionName: "\uB85C\uBD07\uBCC0\uACBD2"
+    key: 32
+  - actionName: "\uC561\uC158\uC2E4\uD589"
+    key: 32
+  - actionName: "\uB85C\uBD07\uC561\uC158"
+    key: 32
