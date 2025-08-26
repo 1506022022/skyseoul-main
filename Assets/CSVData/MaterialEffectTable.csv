@@ -1,0 +1,7 @@
+﻿TypeA,TypeB,ParticleAddress,ParticleDuration,DecalAddress,DecalDuration,SFX,ExtraParamsRaw
+Bullet,Flesh,Blood,0.3,,0,,
+Flesh,Wood,FleshHit,0,,0,,
+Flesh,Ground,WindAOE,0.5,GroundDecal,5,,CameraShake=10;OtherEvent=20;
+Bullet,Ground,StoneBulletHit,0.8,,1,,
+Bullet,Wood,StoneBulletHit,0.8,,1,,
+Bullet,Water,WaterHit,1,,1,,

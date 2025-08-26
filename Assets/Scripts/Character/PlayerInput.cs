@@ -22,7 +22,7 @@ namespace Character
         }
         public static bool IsInputEscape()
         {
-            return Input.GetKeyDown(KeyCode.Alpha2);
+            return Input.GetKeyDown(KeyCode.Escape);
         }
         public static bool IsInputRun(out Vector3 dir)
         {
@@ -47,5 +47,6 @@ namespace Character
         {
             return Input.GetAxisRaw("Cancel") != 0;
         }
+      
     }
 }
