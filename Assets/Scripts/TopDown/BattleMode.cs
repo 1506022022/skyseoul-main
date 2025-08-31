@@ -3,6 +3,7 @@ using Character;
 using Cysharp.Threading.Tasks;
 using Entity;
 using FieldEditorTool;
+using SceneLoad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace TopDown
                 Loader<GameObject, IPlayable>.GetLoader(nameof(IPlayable)),
                 Loader<GameObject, IProp>.GetLoader(nameof(IProp)),
                 Loader<GameObject, SkillComponent>.GetLoader(nameof(Skill)),
+                new JsonSceneLoader(MapType.BattleMap.ToString()),
                 new SceneLoader(MapType.BattleMap.ToString())
             };
             resourceLoader.Initialize(loaders);

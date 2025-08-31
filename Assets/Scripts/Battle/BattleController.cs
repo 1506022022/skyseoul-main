@@ -1,18 +1,28 @@
 ﻿using Character;
+using GameUI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using UnityEngine;
+
 
 namespace Battle
 {
     public class BattleController : IController
     {
         public event Action<IActor> OnDead;
-        readonly BattleHUD battleHUD = new();
+        GameUI.BattleHUD battleHUD;
+        //readonly BattleHUD battleHUD = new();
         readonly HashSet<IActor> joinCharacters = new();
 
+        public BattleController()
+        {
+            battleHUD=UIController.Instance.ShowHUD<GameUI.BattleHUD>();
+        }
         public void Update()
         {
+
         }
         public void Clear()
         {
@@ -20,7 +30,7 @@ namespace Battle
             {
                 DisposeCharacter(joinCharacters.First());
             }
-            battleHUD.Dispose();
+            battleHUD.Hide();
         }
         public void JoinCharacter(IActor actor)
         {
@@ -42,8 +52,9 @@ namespace Battle
             {
                 Action<IHP> updateHUD = health switch
                 {
-                    IPlayable => battleHUD.UpdatePlayer,
-                    _ => battleHUD.UpdateMonster
+                    IPlayable => battleHUD.UpdatePlayerHp,
+                    //  IPlayable => battleHUD.UpdatePlayer,
+                    // _ => battleHUD.UpdateMonster
                 };
                 updateHUD.Invoke(health);
                 health.HP.Value--;

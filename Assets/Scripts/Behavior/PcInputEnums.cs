@@ -11,7 +11,8 @@ public enum PcInputVector3
 public enum PcInputBool
 {
     Jump,
-    Sliding
+    Sliding,
+    MainMenu
 }
 
 [BlackboardEnum]
