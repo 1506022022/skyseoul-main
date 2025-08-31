@@ -191,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f17cb0b060e30e44a810fc5aa2f603f,
         type: 3}
       propertyPath: m_Name
-      value: ew (5)
+      value: "\uAE30\uC640\uC9D1_2"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f17cb0b060e30e44a810fc5aa2f603f,
         type: 3}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PolyMesh:
-    name: PolybrushMesh38034
+    name: PolybrushMesh457976
     vertices:
     - {x: 1.4902252, y: -2.613751, z: -0.49516904}
     - {x: -1.3542024, y: -2.6137514, z: 0.12868407}

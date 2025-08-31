@@ -51,11 +51,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 065a2a845b7b84440a572ffedb646209
-    m_Address: "\uAE30\uC640\uC9D1_2_1"
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08f75fee01d41344081f5ac4b6cdf905
     m_Address: "\uB3CC_3"
     m_ReadOnly: 0
@@ -114,11 +109,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1678497845af1094ca8afd4cfd40fe5d
     m_Address: decal 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 188efb9a7d14fe3479833e8c3e4d9d46
-    m_Address: molding
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -255,11 +245,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3660e5ad6232f6c4e86edea97eda357e
     m_Address: Hanok 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 36dea57f9a7903544a8fd06948e34f62
-    m_Address: SM_GJJ_Pillar01A006 (1)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -426,11 +411,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5406f07fcd3dc4b4bbbe4b2c2c658405
-    m_Address: SM_GJJ_PyungBang01D (1)
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54ce738ce6cc61144ac70368ab45fd77
     m_Address: Jar
     m_ReadOnly: 0
@@ -506,13 +486,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 63ef2481b96d6df4cb42becb286347de
-    m_Address: MaterialEffectTable
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65676cd7db71abf4fa2dff8909aebffc
-    m_Address: "\uAC70\uBD81\uC120"
+    m_Address: GeoBookSeon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -529,11 +504,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69b99e55ca20164478c7c68784092c51
     m_Address: gravel
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6aaf0f2a311bf7341a4da23088f87e50
-    m_Address: SM_GJJ_PyungBang01A001 (1)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

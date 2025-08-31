@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PolyMesh:
-    name: PolybrushMesh56532
+    name: PolybrushMesh429342
     vertices:
     - {x: 0.7195014, y: 0.30069268, z: -0.023617635}
     - {x: 0.70543045, y: 0.31278175, z: -0.1462015}
