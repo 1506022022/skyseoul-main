@@ -932,11 +932,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd950a41ec9282147929fd85217486ce
-    m_Address: 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdeb422c802eb9145b788b93096be249
     m_Address: "\uB3CC_1 (109)"
     m_ReadOnly: 0
