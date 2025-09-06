@@ -103,15 +103,15 @@ namespace TopDown
             Locator = locator;
         }
 
-        public async override void Load()
+        public override void Load()
         {
-            await Task.Run(LoadAsync);
+            LoadAsync();
         }
 
 
         async void LoadAsync()
         {
-            var asyncOp = SceneManager.LoadSceneAsync(Locator, LoadSceneMode.Additive);
+            var asyncOp = SceneManager.LoadSceneAsync(Locator);
             asyncOp.allowSceneActivation = false;
             while (asyncOp.progress < 0.9f)
             {
