@@ -47,6 +47,13 @@ namespace Character
         {
             return Input.GetAxisRaw("Cancel") != 0;
         }
-      
+        public static bool IsInputConsumption(out int slotIndex)
+        {
+            slotIndex = -1;
+
+            if (Input.GetKeyDown(KeyCode.Alpha1)) slotIndex = 1;
+            else if (Input.GetKeyDown(KeyCode.Alpha2)) slotIndex = 2;
+            return slotIndex >= 0;
+        }
     }
 }
