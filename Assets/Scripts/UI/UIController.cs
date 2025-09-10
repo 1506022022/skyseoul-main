@@ -16,7 +16,7 @@ namespace GameUI
                 return _instance;
             }
         }
-        public static WorldUIController WorldUI => Instance.worldUI;
+        public static WorldUI WorldUI => Instance.worldUI;
         #endregion
 
         public UIHUD MainHUD { get; private set; }
@@ -25,11 +25,13 @@ namespace GameUI
         const string UI_PATH_PREFIX = "UI/";
         readonly UIHelper uiHelper = new();
         readonly Stack<UIPopUp> popUpStack = new();
-        readonly WorldUIController worldUI = new();
-
+        readonly WorldUI worldUI = new();
         int order = 10;
+       
 
-        UIController() {  uiHelper.GetEventSystem(UI_PATH_PREFIX);}
+
+
+        UIController() {  uiHelper.FindOrAddGameObject(UI_PATH_PREFIX);}
        
         void LoadUI<T>(string name, System.Action<T> onLoaded, Transform parent = null, bool sort = true) where T : UIBase
         {
@@ -93,31 +95,8 @@ namespace GameUI
 
             return result;
         }
-        public void ClosePopup<T>() where T : UIPopUp
-        {
-            if (popUpStack.Count == 0) return;
-
-            var tempStack = new Stack<UIPopUp>();
-            UIPopUp targetPopup = null;
-
-            while (popUpStack.Count > 0)
-            {
-                var popup = popUpStack.Pop();
-                if (popup is T)
-                {
-                    targetPopup = popup;
-                    Object.Destroy(popup.gameObject);
-                    order--;
-                    break;
-                }
-                else tempStack.Push(popup);
-
-            }
-            while (tempStack.Count > 0)
-                popUpStack.Push(tempStack.Pop());
-        }
-
-        public void CloseTopPopUp()
+        
+        public void ClosePopup()
         {
             if (popUpStack.Count == 0) return;
 
@@ -129,7 +108,7 @@ namespace GameUI
        
         public void CloseAllPopup()
         {
-            while (popUpStack.Count > 0) CloseTopPopUp();
+            while (popUpStack.Count > 0) ClosePopup();
             order = 10;
         }
 
