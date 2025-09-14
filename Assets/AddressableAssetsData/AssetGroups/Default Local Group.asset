@@ -678,12 +678,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 89fea7c9ea0c44845b5f86eb970998f1
-    m_Address: Assets/Runtime/Prop/2200000005.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - IProp
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a446428d36fdd14187b6339ffbc9508
     m_Address: Plane (7)
     m_ReadOnly: 0
@@ -907,11 +901,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c3e084fe7f2622843a30f9871b1c01ca
-    m_Address: StoneBulletHit
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c41fd8cb3c597874cb6ef7647f75c8ea
     m_Address: board1
     m_ReadOnly: 0
@@ -1016,11 +1005,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Skill
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d48e976067f711c43b6e1ceb957aee7f
-    m_Address: HeightDataBase
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4f9c9fa28ba3d64cb3f69555024d56b
     m_Address: Assets/JsonData/Map/A-3.Json
     m_ReadOnly: 0
@@ -1102,12 +1086,6 @@ MonoBehaviour:
     m_Address: pillar
     m_ReadOnly: 0
     m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e47247020edf38e4fb087229a241b4e8
-    m_Address: Assets/Runtime/Skill/2300000008.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Skill
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4873226ce6e74d46b187b1b6716f6d4
     m_Address: board4

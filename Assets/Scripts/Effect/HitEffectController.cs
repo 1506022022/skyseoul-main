@@ -32,6 +32,7 @@ namespace Effect
                 Debug.LogError($"[HitEffectController] Failed to load MaterialEffectTable from address: {address}");
             }
             Debug.Log($"[HitEffectController] :{materialEffect.rows.Count}");
+            
         }
         
         MaterialEffectData GetEffect(string attacker, string victim)
@@ -43,16 +44,20 @@ namespace Effect
         {
             if (!collision.Victim.Actor.TryGetComponent<ObjectSurfaceComponent>(out var victim) ||
                 !collision.Attacker.Actor.TryGetComponent<ObjectSurfaceComponent>(out var attacker)) return;
-
+        
            
             var data = GetEffect(attacker.MaterialType, victim.MaterialType);
-            if (data == null) return;
-
-
+            if (data == null)
+            {
+                Debug.Log($"[HitEffectController] : {attacker.MaterialType},{victim.MaterialType}간의 data가 없음 ");
+            }
+           
+            
             Vector3 hitPoint = collision.HitPoint;
             Quaternion hitRot = Quaternion.LookRotation(collision.Attacker.Actor.transform.forward);
 
-       
+
+            
             if (!string.IsNullOrEmpty(data.ParticleAddress)) 
                 CreateEffectInstance(data.ParticleAddress, data.ParticleDuration, hitPoint, hitRot);
 
@@ -68,7 +73,12 @@ namespace Effect
                 }
             }
         }
-
+        void DebugData(MaterialEffectData data)
+        {
+            Debug.Log(data.ParticleAddress);
+            Debug.Log(data.DecalAddress);
+            Debug.Log(data.ExtraParams);
+        }
 
         async void CreateEffectInstance(string address, float duration, Vector3 position, Quaternion rotation)
         {
