@@ -17,7 +17,10 @@ namespace Battle
         //readonly BattleHUD battleHUD = new();
         readonly HashSet<IActor> joinCharacters = new();
         HitEffectController hitEffect = new();
-        public BattleController() { battleHUD = UIController.Instance.ShowHUD<GameUI.BattleHUD>(); }
+        public BattleController()
+        {
+            battleHUD = UIController.Instance.ShowHUD<GameUI.BattleHUD>();
+        }
         public void Update()
         {
 
@@ -46,15 +49,13 @@ namespace Battle
         {
             if (!collision.Victim.Actor.TryGetComponent<IActor>(out var actor)) return;
             if (actor is IDeathable death && death.IsDead) return;
-           
-            hitEffect.ShowHitEffect(collision);
-
+            hitEffect?.ShowHitEffect(collision);
             if (actor is IHP health)
             {
                 Action<IHP> updateHUD = actor switch
                 {
                     IPlayable => battleHUD.UpdatePlayerHp,
-                    IEnemy => hp => UIController.WorldUI.UpdateStatus(actor, hp),
+                    IStatusable => hp => UIController.WorldUI.UpdateStatus(actor, hp),
                     _ => hp => UIController.WorldUI.UpdateStatus(actor, hp)
                 };
                 updateHUD.Invoke(health);
@@ -70,8 +71,7 @@ namespace Battle
         void DoDie(IActor actor)
         {
             this.DisposeCharacter(actor);
-            if(actor is IEnemy)UIController.WorldUI.HideStatus(actor);
-            
+            if (actor is IStatusable status) UIController.WorldUI.HideStatus(actor);
             if (actor is IDeathable death) death.Die();
             OnDead?.Invoke(actor);
         }

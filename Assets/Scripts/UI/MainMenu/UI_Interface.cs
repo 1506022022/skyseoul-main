@@ -10,7 +10,7 @@ namespace GameUI
     public interface IStatusBar { void UpdateStatusBar(float value); }
     public interface IButton { void BindButtonEvents(); }
 
-  
+
     public interface ISetValue { }
     public interface ISetValue<T>:ISetValue { void SetValue(T value); }
     public interface ISelectable<T>

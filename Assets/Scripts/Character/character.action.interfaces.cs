@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Character
 {
+    public interface IStatusable { }
     public interface IGroundCheckable { bool IsGrounded { get; } }
     public interface IJumpable { void Jump(); }
     public interface IAttackable { void Attack(int attackType); }

@@ -12,7 +12,7 @@ namespace Effect
         [Tooltip("행렬 데이터 (i * Count + j 인덱스 사용)")]
         public List<MaterialEffectData> rows = new List<MaterialEffectData>();
 
-        Dictionary<(string, string), MaterialEffectData> cache;
+        public  Dictionary<(string, string), MaterialEffectData> cache;
 
         public void BuildCache()
         {
@@ -23,9 +23,9 @@ namespace Effect
             int count = materialTypeDatabase.rows.Count;
             for (int i = 0; i < count; i++)
             {
-                for (int j = 0; j < count; j++)
+                for (int j = i; j < count; j++) 
                 {
-                    int index = i * count + j;
+                    int index = GetIndex(i, j, count);
                     if (index < 0 || index >= rows.Count) continue;
 
                     var data = rows[index];
@@ -50,9 +50,13 @@ namespace Effect
 
             return cache.TryGetValue((a, b), out var data) ? data : null;
         }
-
+        private int GetIndex(int i, int j, int size)
+        {
+            if (i > j) (i, j) = (j, i); 
+            return i * size - (i * (i - 1)) / 2 + (j - i);
+        }
 #if UNITY_EDITOR
-      
+
         private void OnValidate()
         {
             UnityEditor.EditorUtility.SetDirty(this);
