@@ -9,10 +9,50 @@ namespace Effect
         [Header("참조할 MaterialTypeDatabase")]
         public MaterialTypeDatabase materialTypeDatabase;
 
-        [Tooltip("행렬 데이터 (i * Count + j 인덱스 사용)")]
+        [Tooltip("행렬 데이터 (i, j 조합으로 접근)")]
         public List<MaterialEffectData> rows = new List<MaterialEffectData>();
 
-        public  Dictionary<(string, string), MaterialEffectData> cache;
+        [SerializeField, HideInInspector]
+        private int currentSize = 0;  
+
+        public Dictionary<(string, string), MaterialEffectData> cache;
+
+
+        public void EnsureMatrixSize()
+        {
+            if (materialTypeDatabase == null) return;
+
+            int size = materialTypeDatabase.rows.Count;
+            int expected = size * (size + 1) / 2;
+
+           
+            var newRows = new List<MaterialEffectData>(expected);
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = i; j < size; j++)
+                {
+                    int newIndex = GetIndex(i, j, size);
+
+                 
+                    if (rows != null && currentSize > 0 && i < currentSize && j < currentSize)
+                    {
+                        int oldIndex = GetIndex(i, j, currentSize);
+                        if (oldIndex >= 0 && oldIndex < rows.Count)
+                        {
+                            newRows.Add(rows[oldIndex]);
+                            continue;
+                        }
+                    }
+
+                
+                    newRows.Add(new MaterialEffectData());
+                }
+            }
+
+            rows = newRows;
+            currentSize = size;
+        }
 
         public void BuildCache()
         {
@@ -21,9 +61,11 @@ namespace Effect
             if (materialTypeDatabase == null || materialTypeDatabase.rows == null) return;
 
             int count = materialTypeDatabase.rows.Count;
+            EnsureMatrixSize();
+
             for (int i = 0; i < count; i++)
             {
-                for (int j = i; j < count; j++) 
+                for (int j = i; j < count; j++)
                 {
                     int index = GetIndex(i, j, count);
                     if (index < 0 || index >= rows.Count) continue;
@@ -50,17 +92,18 @@ namespace Effect
 
             return cache.TryGetValue((a, b), out var data) ? data : null;
         }
+
         private int GetIndex(int i, int j, int size)
         {
-            if (i > j) (i, j) = (j, i); 
+            if (i > j) (i, j) = (j, i);
             return i * size - (i * (i - 1)) / 2 + (j - i);
         }
-#if UNITY_EDITOR
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
+            EnsureMatrixSize(); 
             UnityEditor.EditorUtility.SetDirty(this);
-            UnityEditor.AssetDatabase.SaveAssets();
         }
 #endif
     }

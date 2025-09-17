@@ -128,7 +128,10 @@ namespace GameUI
         }
 
         #region ButtonEvents
-        public void OnClickBackButton() => Destroy(gameObject);
+        public void OnClickBackButton()
+        {
+            UIController.Instance.ClosePopup<MainMenu>();
+        }
 
         public void OnClickLobbyButton()
         {

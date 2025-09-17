@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace GameUI
 {
-    public class WorldUI
+    public class WorldUIController
     {
         readonly Dictionary<IActor, ObjectStatus> statusBars = new();
         readonly Queue<ObjectStatus> statusPool = new();
         Transform worldCanvasRoot;
 
-        ~WorldUI() { Clear(); }
+        ~WorldUIController() { Clear(); }
         string GetStatusPrefabPath(IActor actor)
         {
             return actor switch
@@ -54,15 +54,10 @@ namespace GameUI
             if (actor is Component comp)
             {
                 Transform attach = comp.transform;
-                var animator = comp.GetComponentInChildren<Animator>();
-                if (animator != null)
-                {
-                    var head = animator.GetBoneTransform(HumanBodyBones.Head);
-                    if (head != null) attach = head;
-                }
-                    
+                
                 status.Bind(attach, hp);
-                status.OnReleased = s => HideStatus(actor);
+                status.OnReleased += _ => HideStatus(actor);
+
             }
 
             statusBars[actor] = status;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -101,6 +102,11 @@ namespace GameUI
             return true;
         }
       
+    }
+    public class WorldUI:UIBase,IWorldShowable
+    {
+        public event Action<IWorldShowable> OnReleased;
+        protected void InvokeRelease() { OnReleased?.Invoke(this); }
     }
 }
 
