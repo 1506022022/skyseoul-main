@@ -13,16 +13,12 @@ namespace GameUI
         [SerializeField] StatusBar poiseStatusBar;
 
         Transform target;
-        Vector3 offset = new Vector3(0.0f, 0.8f, 0.0f);
+        Vector3 offset = Vector3.zero;
 
      
         private void Update()
         {
-            if (target != null)
-            {
-                Debug.Log(target.gameObject.name);
-                transform.position = target.position + offset;
-            }
+            if (target != null) { transform.position = target.position + offset; }
         }
             
 
@@ -31,10 +27,11 @@ namespace GameUI
         public void UpdateHp(float hp) => hpStatusBar.UpdateStatusBar(hp);
         public void UpdatePoise(float poise)=> poiseStatusBar.UpdateStatusBar(poise);
 
-        public void Bind(Transform  target, IHP ihp)
+        public void Bind(Transform  target, IHP ihp ,Vector3 height)
         {
             this.target = target;
             UpdateHp(ihp.HP.Ratio);
+            offset= height; 
         }
     
         public void Release()
