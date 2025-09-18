@@ -26,8 +26,8 @@ namespace GameUI
         [Header("고정된 위젯들 (인스펙터에서 세팅)")]
         [SerializeField] private List<UIWidget> fixedWidgets;
 
-        private readonly Dictionary<System.Type, UIWidget> _widgets = new();
-        public IReadOnlyDictionary<System.Type, UIWidget> Widgets => _widgets;
+        private readonly Dictionary<System.Type, UIWidget> widgets = new();
+        public IReadOnlyDictionary<System.Type, UIWidget> Widgets => widgets;
 
         public override bool Init()
         {
@@ -45,17 +45,17 @@ namespace GameUI
                 widget.Init();
 
                 var type = widget.GetType();
-                if (!_widgets.ContainsKey(type))
-                    _widgets[type] = widget;
+                if (!this.widgets.ContainsKey(type))
+                    this.widgets[type] = widget;
             }
         }
         public void AddWidget(UIWidget widget)
         {
             var type = widget.GetType();
            
-            if (_widgets.ContainsKey(type)) return;
+            if (widgets.ContainsKey(type)) return;
 
-            _widgets[type] = widget;
+            widgets[type] = widget;
             widget.transform.SetParent(transform, false); 
             widget.Init();
 
@@ -64,15 +64,15 @@ namespace GameUI
         public void RemoveWidget<T>() where T : UIWidget
         {
             var type = typeof(T);
-            if (_widgets.TryGetValue(type, out var widget))
+            if (widgets.TryGetValue(type, out var widget))
             {
                 Destroy(widget.gameObject);
-                _widgets.Remove(type);
+                widgets.Remove(type);
             }
         }
         public T GetWidget<T>() where T : UIWidget
         {
-            if (_widgets.TryGetValue(typeof(T), out var widget))
+            if (widgets.TryGetValue(typeof(T), out var widget))
                 return widget as T;
 
             return null;

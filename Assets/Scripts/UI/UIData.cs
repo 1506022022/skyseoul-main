@@ -20,7 +20,7 @@ namespace GameUI
         public float Height;
     }
     [Serializable]
-    public class HeightDataCollection
+    public class HeightDataBase
     {
         public List<HeightData> entries = new();
     }

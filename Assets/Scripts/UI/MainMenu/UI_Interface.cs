@@ -2,6 +2,7 @@ using System;
 
 
 
+
 namespace GameUI
 {
     public interface IShowable { void Show(); }
@@ -33,5 +34,4 @@ namespace GameUI
         T GetSubData();
     }
    
-      
 }

@@ -1223,7 +1223,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3567,7 +3567,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7447,7 +7447,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7468,7 +7468,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 327488447303686893}
+  m_TargetGraphic: {fileID: 4660417322536433694}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12847,7 +12847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9594c1ebfaae34284095aa25829ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tabObjects:
+  tabObjects:
   - {fileID: 8192025264578600253}
   - {fileID: 7975601374136618110}
   - {fileID: 1590295462985904396}

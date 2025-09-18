@@ -9,9 +9,12 @@ namespace GameUI
     {
         readonly Dictionary<IActor, ObjectStatus> statusBars = new();
         readonly Queue<ObjectStatus> statusPool = new();
+        readonly HeightDataLoader heightDataLoader = new();
         Transform worldCanvasRoot;
 
-        ~WorldUIController() { Clear(); }
+        ~WorldUIController(){ Clear(); }
+
+
         string GetStatusPrefabPath(IActor actor)
         {
             return actor switch
@@ -54,8 +57,12 @@ namespace GameUI
             if (actor is Component comp)
             {
                 Transform attach = comp.transform;
-                
-                status.Bind(attach, hp);
+
+                Vector3 height = heightDataLoader.GetHeight(attach.gameObject.name);
+
+                Debug.Log($"ObjectStatus:{height}");
+                status.Bind(attach, hp,height);
+              
                 status.OnReleased += _ => HideStatus(actor);
 
             }

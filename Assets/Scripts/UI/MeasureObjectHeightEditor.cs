@@ -138,24 +138,24 @@ public class MeasureObjectHeightEditor : EditorWindow
         return null;
     }
 
-    HeightDataCollection LoadDatabase(string path)
+    HeightDataBase LoadDatabase(string path)
     {
         if (string.IsNullOrEmpty(path) || !File.Exists(path))
-            return new HeightDataCollection();
+            return new HeightDataBase();
 
         string json = File.ReadAllText(path);
-        var db = JsonUtility.FromJson<HeightDataCollection>(json);
-        return db ?? new HeightDataCollection();
+        var db = JsonUtility.FromJson<HeightDataBase>(json);
+        return db ?? new HeightDataBase();
     }
 
-    void SaveDatabase(string path, HeightDataCollection db)
+    void SaveDatabase(string path, HeightDataBase db)
     {
         string newJson = JsonUtility.ToJson(db, true);
         File.WriteAllText(path, newJson);
         AssetDatabase.Refresh();
     }
 
-    void AddOrUpdateEntry(HeightDataCollection db, string id, float height)
+    void AddOrUpdateEntry(HeightDataBase db, string id, float height)
     {
         var entry = db.entries.FirstOrDefault(e => e.ID == id);
         if (entry == null)
@@ -185,7 +185,7 @@ public class MeasureObjectHeightEditor : EditorWindow
             if (string.IsNullOrEmpty(path))
             { 
                 path = "Assets/HeightDatabase.json";
-                File.WriteAllText(path, JsonUtility.ToJson(new HeightDataCollection(), true));
+                File.WriteAllText(path, JsonUtility.ToJson(new HeightDataBase(), true));
                 AssetDatabase.Refresh();
             }
             
