@@ -31,8 +31,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7175445969162952543}
+  m_Children: []
   m_Father: {fileID: 4370879016258398977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2128621886249552822
@@ -218,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4370879016258398977}
   - component: {fileID: 728466107968203024}
+  - component: {fileID: 8835064757757932267}
   - component: {fileID: 3699225363116142294}
   m_Layer: 0
   m_Name: 2200000005
@@ -260,8 +260,23 @@ MonoBehaviour:
   initOnAwake: 0
   <Skill>k__BackingField: {fileID: 8814447283823397299, guid: e47247020edf38e4fb087229a241b4e8,
     type: 3}
-  <SkillOffset>k__BackingField: {x: 0, y: 0, z: 0}
+  <SkillOffset>k__BackingField: {x: 0, y: 2.093, z: 0}
   <SkillRotation>k__BackingField: {x: 0, y: 0, z: 0}
+--- !u!114 &8835064757757932267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494752414356648418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399d458584e6a1f4f8736f51354b869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  offset: {x: 0, y: 2.1, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &3699225363116142294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,14 +291,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Graph: {fileID: 1669970204607778916, guid: 0a52fe4d17f99354bbb7e992416598ce, type: 2}
   m_BlackboardVariableOverridesList:
-  - rid: 1246036309678489687
-  - rid: 1246036309678489754
+  - rid: 1246036406103441490
+  - rid: 1246036406103441491
+  - rid: 1246036406103441499
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
-    - rid: 1246036309678489687
+    - rid: 1246036406103441490
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -292,43 +308,22 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 4494752414356648418}
-    - rid: 1246036309678489754
+    - rid: 1246036406103441491
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8837570553750330543
+          m_Value1: 4081704852002037468
+        Name: SpawnActor
+        m_Value: {fileID: 3737822035202810980, guid: 3bfe1c02d046ac34bae8c78216c033ee,
+          type: 3}
+    - rid: 1246036406103441499
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
         GUID:
           m_Value0: 18167752971671142245
           m_Value1: 665996774324457821
-        Name: CoolTime
+        Name: Delay
         m_Value: 10
---- !u!1 &6130924281010264691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7175445969162952543}
-  m_Layer: 0
-  m_Name: BallSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7175445969162952543
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6130924281010264691}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.9063079, w: 0.4226182}
-  m_LocalPosition: {x: -0.0038302229, y: 0.0032139302, z: 0.2093}
-  m_LocalScale: {x: 0.09999998, y: 0.099999994, z: 0.10000002}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9165533708613056035}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

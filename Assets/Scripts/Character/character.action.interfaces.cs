@@ -53,4 +53,12 @@ namespace Character
         void Alert();
         void Release();
     }
+
+    public interface IRetriever 
+    {
+        float Duration { get; }
+        Vector3 Offset { get;  }
+        Vector3 Rotation { get; }
+        void Retrieve(Transform actor);
+    }
 }

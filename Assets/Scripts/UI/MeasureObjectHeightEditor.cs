@@ -10,7 +10,7 @@ public class MeasureObjectHeightEditor : EditorWindow
     GameObject targetPrefab;
     GameObject prevPrefab;
     Vector3 lastAnchorPos;
-    float defaultAnchorOffset = 0.2f;
+    float defaultAnchorOffset = 0.5f;
     bool isMeasured = false;
     const string Find_Asset_Path = "t:TextAsset HeightDatabase";
     [MenuItem("Tools/GameUI/Measure Height")]

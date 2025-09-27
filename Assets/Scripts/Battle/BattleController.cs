@@ -1,5 +1,6 @@
 ﻿using Character;
 using Effect;
+using GameCamera;
 using GameUI;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,10 @@ namespace Battle
         {
             if (actor is IDamageable body)
                 body.HitBox.OnCollision += OnHitCharacter;
+            if (actor is IPlayable player)
+                CreateMiniMapCamera(actor);
             joinCharacters.Add(actor);
+
         }
         public void DisposeCharacter(IActor actor)
         {
@@ -74,6 +78,14 @@ namespace Battle
             if (actor is IStatusable status) UIController.WorldUI.HideStatus(actor);
             if (actor is IDeathable death) death.Die();
             OnDead?.Invoke(actor);
+        }
+        void CreateMiniMapCamera(IActor actor)
+        {
+            MiniMapCamera prefab = Resources.Load<MiniMapCamera>(nameof(MiniMapCamera));
+            MiniMapCamera instance = GameObject.Instantiate(prefab);
+
+            instance.Init(actor);
+          
         }
     }
 }
