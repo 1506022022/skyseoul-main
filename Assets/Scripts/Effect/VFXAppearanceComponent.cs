@@ -7,43 +7,42 @@ namespace Effect
     public interface IAppearance
     {
         float Duration { get; }
-        event Action OnDissolve;
-        event Action OnAppear;
         void InvokeDissolve();
         void InvokeAppear();
     }
    
     public class VFXAppearanceComponent : MonoBehaviour, IAppearance
     {
-        public event Action OnDissolve;
-        public event Action OnAppear;
-
+        
         [Header("Duration")]
-        [SerializeField] float duration;
+        [SerializeField,Range(0,10)] float duration;
 
         [Header("VFX")]
         [SerializeField] InteractiveEffect dissolve;
         [SerializeField] InteractiveEffect appear;
 
+        [SerializeField] bool withLifeCycle;
         public float Duration => duration;
 
 
         void OnEnable()
         {
-            OnAppear += AppearEffect;
-            OnDissolve += DissolveEffect;
+            if (Application.isPlaying && withLifeCycle)
+                InvokeAppear();
         }
 
         void OnDisable()
         {
-            OnAppear -= AppearEffect;
-            OnDissolve -= DissolveEffect;
+            if (Application.isPlaying && withLifeCycle)
+                InvokeDissolve();
         }
 
         void AppearEffect() => appear?.PlayEffect();
         void DissolveEffect()=> dissolve?.PlayEffect();
-        public void InvokeDissolve() => OnDissolve?.Invoke();
-        public void InvokeAppear() => OnAppear?.Invoke();
+        public void InvokeDissolve() => DissolveEffect();
+        public void InvokeAppear() => AppearEffect();
+       
+
 #if UNITY_EDITOR
         public void SyncDuration()
         {

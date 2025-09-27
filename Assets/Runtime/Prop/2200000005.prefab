@@ -277,6 +277,7 @@ MonoBehaviour:
   duration: 1
   offset: {x: 0, y: 2.1, z: 0}
   rotation: {x: 0, y: 0, z: 0}
+  syncWithEffect: 1
 --- !u!114 &3699225363116142294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +317,7 @@ MonoBehaviour:
           m_Value0: 8837570553750330543
           m_Value1: 4081704852002037468
         Name: SpawnActor
-        m_Value: {fileID: 3737822035202810980, guid: 3bfe1c02d046ac34bae8c78216c033ee,
+        m_Value: {fileID: 836542295704057141, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
           type: 3}
     - rid: 1246036406103441499
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
@@ -325,5 +326,5 @@ MonoBehaviour:
         GUID:
           m_Value0: 18167752971671142245
           m_Value1: 665996774324457821
-        Name: Delay
+        Name: CoolTime
         m_Value: 10

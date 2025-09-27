@@ -127,12 +127,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3699225363116142294, guid: 89fea7c9ea0c44845b5f86eb970998f1,
+    - target: {fileID: 728466107968203024, guid: 89fea7c9ea0c44845b5f86eb970998f1,
         type: 3}
-      propertyPath: managedReferences[1246036406103441491].m_Value
-      value: 
-      objectReference: {fileID: 836542295704057141, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
+      propertyPath: initOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4370879016258398977, guid: 89fea7c9ea0c44845b5f86eb970998f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -190,8 +189,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8835064757757932267, guid: 89fea7c9ea0c44845b5f86eb970998f1,
         type: 3}
-      propertyPath: duration
-      value: 1
+      propertyPath: syncWithEffect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1274,7 +1273,7 @@ PrefabInstance:
     - target: {fileID: 144679067199325672, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.95
+      value: 83.17
       objectReference: {fileID: 0}
     - target: {fileID: 144679067199325672, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
         type: 3}
@@ -1325,76 +1324,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 5_shotputter_zombie_ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 836542295704057141, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1200388852097709375, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1200388852097709375, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1200388852097709375, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1438124488962639834, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617136719193730125, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3775811160945244115, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3775811160945244115, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3775811160945244115, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.z
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001142011905641611, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859100562050965695, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859100562050965695, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859100562050965695, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[3].m_Value.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9006863958859221466, guid: 6f2194b1a01c3024dae82fe8d4f8907e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
