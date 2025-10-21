@@ -27,7 +27,7 @@ public class RobotMessenger : MonoBehaviour
     readonly Queue<string> messageQueue = new();
 
     static RobotMessenger instance;
-    static RobotMessenger Instance
+    public static RobotMessenger Instance
     {
         get
         {
