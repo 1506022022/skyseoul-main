@@ -27,10 +27,6 @@ public enum BasicStatus
 [BlackboardEnum]
 public enum RobotSubStatus
 {
-    None,
-    Hacking,
-    FollowingPlayer,
-    PreparingExplosion,
-    Exploding,
-    Cooldown
+    Sleep,
+    Wake
 }

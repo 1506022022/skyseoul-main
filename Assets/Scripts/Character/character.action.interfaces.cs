@@ -61,4 +61,10 @@ namespace Character
         Vector3 Rotation { get; }
         void Retrieve(Transform actor);
     }
+    public interface IExplode
+    {
+        void Explosion();
+    }
+    public interface IWakeable { void Wake(); bool IsWake { get; } float WakeDuration { get; set; } }
+
 }
