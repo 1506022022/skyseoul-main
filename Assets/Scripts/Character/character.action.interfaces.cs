@@ -1,4 +1,5 @@
 using Battle;
+using System;
 using UnityEngine;
 
 namespace Character
@@ -66,5 +67,14 @@ namespace Character
         void Explosion();
     }
     public interface IWakeable { void Wake(); bool IsWake { get; } float WakeDuration { get; set; } }
+
+    public interface IInteractable
+    {
+        bool CanBegin(IActor actor);
+        void Begin(IActor actor); void Tick(IActor actor, float deltaTime); void Cancel(IActor actor);
+        float Progress { get; }
+
+        event Action<float> OnProgress; event Action OnCompleted, OnBegin, OnCancel;
+    }
 
 }
