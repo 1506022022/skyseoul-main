@@ -18,9 +18,6 @@ public abstract class SkillAction : ScriptableObject, IInitializable
     [Header("Settings")]
     public SkillTriggerType TriggerType = SkillTriggerType.None;
 
-    [Tooltip("다른 스킬과 병렬 실행이 가능한가?")]
-    public bool CanRunParallel = true;
-
     public abstract void Execute(Transform owner);
 
     public virtual void Initialize() { }

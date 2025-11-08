@@ -17,8 +17,8 @@ namespace SceneLoader
     {
          Vector2 scroll;
          List<SceneExportSettings> settingsList = new();
-         string exportPath = "";
-         string commonPrefabPath = "";
+         string exportPath = "Assets/JsonData/BattleMap.json";
+         string commonPrefabPath = "Assets/Prefabs/Map";
 
         [MenuItem("Tools/Scene Export/Export Scene")]
         public static void ShowWindow()
@@ -139,36 +139,36 @@ namespace SceneLoader
             setting.ForcePrefabize = !disabled;
         }
 
-
-
-         void DrawCommonPrefabPath()
-        {
-            EditorGUILayout.LabelField("Common Prefab Save Path", EditorStyles.boldLabel);
-            EditorGUILayout.BeginHorizontal();
-            commonPrefabPath = EditorGUILayout.TextField(commonPrefabPath);
-            if (GUILayout.Button("Browse", GUILayout.Width(70)))
-            {
-                string selected = EditorUtility.OpenFolderPanel("Select Prefab Folder", "Assets", "");
-                if (PrefabAddressableHandler.TryGetAssetRelativePath(selected, out var assetPath))
-                    commonPrefabPath = assetPath;
-            }
-            EditorGUILayout.EndHorizontal();
-        }
-
-         void DrawExportPathSelection()
+        void DrawExportPathSelection()
         {
             EditorGUILayout.LabelField("Export Path", EditorStyles.boldLabel);
-            EditorGUILayout.BeginHorizontal();
-            exportPath = EditorGUILayout.TextField(exportPath);
-            if (GUILayout.Button("Browse", GUILayout.Width(70)))
+            GUIStyle pathStyle = new GUIStyle(EditorStyles.label)
             {
-                string sceneName = SceneManager.GetActiveScene().name;
-                exportPath = EditorUtility.SaveFilePanel("Export Scene", "", sceneName + ".json", "json");
-            }
-            EditorGUILayout.EndHorizontal();
+                wordWrap = true,
+                normal = { textColor = Color.cyan }
+            };
+
+            EditorGUILayout.LabelField(exportPath, pathStyle);
+
         }
 
-         void RefreshExportSettings()
+        void DrawCommonPrefabPath()
+        {
+            EditorGUILayout.LabelField("Common Prefab Save Path", EditorStyles.boldLabel);
+
+       
+            GUIStyle pathStyle = new GUIStyle(EditorStyles.label)
+            {
+                wordWrap = true,
+                normal = { textColor = Color.cyan }
+            };
+
+            EditorGUILayout.LabelField(commonPrefabPath, pathStyle);
+        }
+
+     
+
+        void RefreshExportSettings()
         {
             settingsList.Clear();
 
@@ -250,15 +250,22 @@ namespace SceneLoader
         }
          void WriteExportedDataToJsonFile(List<SceneObjectData> dataList)
         {
+            string dir = Path.GetDirectoryName(exportPath);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+       
             var wrapper = new SerializationWrapper<SceneObjectData>(dataList);
             string json = JsonUtility.ToJson(wrapper, true);
+
 
             if (File.Exists(exportPath))
                 File.Copy(exportPath, exportPath + ".bak", overwrite: true);
 
             File.WriteAllText(exportPath, json);
-            Debug.Log($"[SceneExportWindow] Exported to: {exportPath}");
 
+          
+            Debug.Log($"[SceneExportWindow] Export 완료: {exportPath}");
             AssetDatabase.Refresh();
         }
 

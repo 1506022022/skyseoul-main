@@ -12,7 +12,7 @@ public partial class EqualRobotSubState : Condition
 
     public override bool IsTrue()
     {
-        if (!Actor.Value.TryGetComponent<IWakeable>(out var wakeable)) return false;
+        if (!Actor.Value.TryGetComponent<IHackable>(out var wakeable)) return false;
 
         if (RobotSubState.Value == RobotSubStatus.Sleep) return !wakeable.IsWake;
         else return wakeable.IsWake;

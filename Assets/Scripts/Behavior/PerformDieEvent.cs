@@ -6,8 +6,8 @@ using Unity.Properties;
 using Character;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "PerformExplosion", story: "Perform [self] explosion", category: "Action", id: "d954f357e6754674cb5e02b13652cf7c")]
-public partial class PerformExplosion : Action
+[NodeDescription(name: "PerformDieEvent", story: "Perform [self] DieEvent", category: "Action", id: "d954f357e6754674cb5e02b13652cf7c")]
+public partial class PerformDieEvent : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Self;
 

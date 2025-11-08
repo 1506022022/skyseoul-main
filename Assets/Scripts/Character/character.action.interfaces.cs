@@ -66,15 +66,17 @@ namespace Character
     {
         void Explosion();
     }
-    public interface IWakeable { void Wake(); bool IsWake { get; } float WakeDuration { get; set; } }
+    public interface IHackable { IActor Owner { get; } void Wake(IActor actor); bool IsWake { get; } float WakeDuration { get;} }
 
     public interface IInteractable
     {
+        IActor CurrentActor { get; }
+        float Progress { get; }
         bool CanBegin(IActor actor);
         void Begin(IActor actor); void Tick(IActor actor, float deltaTime); void Cancel(IActor actor);
-        float Progress { get; }
 
-        event Action<float> OnProgress; event Action OnCompleted, OnBegin, OnCancel;
+        event Action<float> OnProgress;
+        event Action OnCompleted, OnBegin, OnCancel;
     }
 
 }

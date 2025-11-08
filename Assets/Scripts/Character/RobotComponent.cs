@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Character
 {
-    public class RobotComponent : PropBaseComponent, IMovable, IAttackable, IHP, IWakeable
+    public class RobotComponent : PropBaseComponent, IMovable, IAttackable, IHP, IHackable
     {
         [Header("Base Stats")]
         [SerializeField] Statistics hp = new(10);
@@ -12,11 +12,11 @@ namespace Character
         [Header("Skill Actions")]
         [SerializeField] List<SkillAction> skills = new();
 
-
         readonly Dictionary<SkillTriggerType, List<SkillAction>> skillTable = new();
         readonly IMove walk = new Walk();
 
         public Statistics HP => hp;
+        public IActor Owner { get; private set; }
         public bool IsWake { get; private set; }
         public float WakeDuration { get; set; }
 
@@ -80,8 +80,12 @@ namespace Character
                 (this as IDeathable)?.Die();
         }
 
-        public virtual void Wake()
+        public virtual void Wake(IActor actor)
         {
+            Debug.Log($"[RobotComponent]: {actor}");
+
+
+            Owner = actor;
             IsWake = true;
             TryExecuteSkills(SkillTriggerType.OnWake);
         }

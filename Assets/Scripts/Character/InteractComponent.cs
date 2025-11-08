@@ -19,10 +19,10 @@ public class InteractComponent : MonoBehaviour, IInteractable
     IActor currentActor;
 
     public event Action<float> OnProgress;
-    public event Action OnCompleted;
-    public event Action OnBegin;
-    public event Action OnCancel;
+    public event Action OnCompleted, OnBegin,OnCancel;
+   
 
+    public IActor CurrentActor => currentActor;
     public float Progress => state.Progress;
 
     protected virtual void Awake()
@@ -38,9 +38,8 @@ public class InteractComponent : MonoBehaviour, IInteractable
 
     public virtual bool CanBegin(IActor actor)
     {
-       
         if (actor is not Component comp) return false;
-        return Vector3.Distance(anchor.position, comp.transform.position) <= profile.Range;
+        return Vector3.Distance(anchor.position, comp.transform.position) <= profile.InteractRange;
     }
 
 
@@ -48,9 +47,9 @@ public class InteractComponent : MonoBehaviour, IInteractable
     {
         if (!CanBegin(actor)) return;
 
+        OnBegin?.Invoke();
         currentActor = actor;
         state.Begin();
-        OnBegin?.Invoke();
     }
 
    
@@ -59,13 +58,9 @@ public class InteractComponent : MonoBehaviour, IInteractable
         if (!state.IsActive) return;
 
         state.Tick(deltaTime, OnProgress);
-        Debug.Log($"Tick... HeldTime={state.HeldTime:F2}, Required={profile.HoldDuration:F2}");
+            
+        if (state.IsCompleted(profile.HoldDuration)) CompleteInteraction(actor);
 
-        if (state.IsCompleted(profile.HoldDuration))
-        {
-            Debug.Log(" Interaction Complete");
-            CompleteInteraction(actor);
-        }
     }
     public virtual void Cancel(IActor actor)
     {
@@ -78,9 +73,9 @@ public class InteractComponent : MonoBehaviour, IInteractable
     {
         OnCompleted?.Invoke();
 
-        for(int i=0; i<actions.Count;i++)
-            actions[i]?.Execute(transform);
-      
+        if(TryGetComponent<IActor>(out var target))
+        for(int i=0; i<actions.Count;i++) actions[i]?.Execute(actor,target);
+
         state.Reset(OnProgress);
         currentActor = null;
     }
@@ -89,7 +84,7 @@ public class InteractComponent : MonoBehaviour, IInteractable
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(anchor ? anchor.position : transform.position, profile.Range);
+        Gizmos.DrawWireSphere(anchor ? anchor.position : transform.position, profile.InteractRange);
     }
 #endif
 }

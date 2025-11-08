@@ -18,12 +18,6 @@ public class TempDamage : MonoBehaviour
                 damageable.TakeDamage();
             }
         }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            if (transform.TryGetComponent<IWakeable>(out var wakeable))
-            {
-                wakeable.Wake();
-            }
-        }
+        
     }
 }

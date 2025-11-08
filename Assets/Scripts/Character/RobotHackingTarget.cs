@@ -5,18 +5,18 @@ namespace Character
 {
     public class RobotHackingTarget : InteractComponent
     {
-        IWakeable robot;
+        IHackable robot;
 
         protected override void Awake()
         {
             base.Awake();
-            robot = GetComponent<IWakeable>();
+            robot = GetComponent<IHackable>();
         }
 
         protected override void CompleteInteraction(IActor actor)
         {
             base.CompleteInteraction(actor);
-            if (robot != null && !robot.IsWake) robot.Wake();
+            if (robot != null && !robot.IsWake) robot.Wake(actor);
         }
 
         public override bool CanBegin(IActor actor) =>  base.CanBegin(actor) && robot != null && !robot.IsWake;

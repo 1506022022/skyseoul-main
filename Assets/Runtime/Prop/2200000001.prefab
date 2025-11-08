@@ -797,9 +797,9 @@ GameObject:
   - component: {fileID: 2838831158878601764}
   - component: {fileID: 2104273550768055585}
   - component: {fileID: 2507885715464545308}
+  - component: {fileID: 7639190454143062334}
   - component: {fileID: 5037833879959671383}
   - component: {fileID: 8541949140017581675}
-  - component: {fileID: 7639190454143062334}
   m_Layer: 9
   m_Name: 2200000001
   m_TagString: Untagged
@@ -936,6 +936,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7639190454143062334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323820612468315456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &5037833879959671383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,32 +991,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile:
     HoldDuration: 2
-    Range: 3
+    InteractRange: 3
     DecaySpeed: 2
   actions:
   - {fileID: 11400000, guid: 69b7271d2dfc5a240b1454164dba34e4, type: 2}
   anchor: {fileID: 0}
---- !u!65 &7639190454143062334
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7323820612468315456}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &7497448281904683583
 GameObject:
   m_ObjectHideFlags: 0

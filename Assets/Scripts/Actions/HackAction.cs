@@ -6,24 +6,25 @@ using Character;
 public class HackAction : InteractAction
 {
     [Header("Hack Settings")]
-    [SerializeField] private GameObject hackVfx;
-    [SerializeField] private AudioClip hackSfx;
-    [SerializeField] private float delay = 0.2f;
+    [SerializeField] GameObject hackVfx;
+    [SerializeField] AudioClip hackSfx;
+    [SerializeField] float delay = 0.2f;
 
-    public override void Execute(Transform actor)
+    public override void Execute(IActor actor, IActor target)
     {
-        if (!actor.TryGetComponent<IWakeable>(out var wakeable)) return;
+        if (target is not IHackable hackable) return;
 
-        wakeable.Wake();
+        hackable.Wake(actor);
 
-        Debug.Log($"[HackAction] {actor.name} 해킹 성공!");
+        Vector3 position = Vector3.zero;
 
-        if (hackVfx)
-            Object.Instantiate(hackVfx, actor.position, Quaternion.identity);
+        if (target is Transform transform) position = transform.position;
+ 
+        if (hackVfx) Object.Instantiate(hackVfx, position, Quaternion.identity);
+        if (hackSfx) AudioSource.PlayClipAtPoint(hackSfx, position);
 
-        if (hackSfx)
-            AudioSource.PlayClipAtPoint(hackSfx, actor.position);
-
-      
     }
+
+       
+
 }

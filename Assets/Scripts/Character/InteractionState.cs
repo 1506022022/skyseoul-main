@@ -8,9 +8,9 @@ public class InteractionState
     public float HeldTime { get; private set; }
     public bool IsActive { get; private set; }
 
-    public float Progress => Mathf.Clamp01(HeldTime / Mathf.Max(0.01f, _requiredTime));
+    public float Progress => Mathf.Clamp01(HeldTime / Mathf.Max(0.01f, requiredTime));
 
-    private float _requiredTime;
+    float requiredTime;
 
     public void Begin()
     {
@@ -36,8 +36,8 @@ public class InteractionState
 
     public bool IsCompleted(float requiredTime)
     {
-        _requiredTime = requiredTime;
-        return HeldTime >= requiredTime;
+        this.requiredTime = requiredTime;
+        return HeldTime >= this.requiredTime;
     }
 
     public void Cancel() => IsActive = false;

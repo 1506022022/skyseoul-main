@@ -50,12 +50,11 @@ public class PlayerInteractor : MonoBehaviour, IActor
 
     void HandleInput()
     {
-        if (currentTarget == null)
-            return;
+        if (currentTarget == null) return;
+
 
         if (Input.GetKeyDown(interactKey))
         {
-            Debug.Log(currentTarget);
             if (currentTarget.CanBegin(this))
                 currentTarget.Begin(this);
         }
@@ -71,6 +70,7 @@ public class PlayerInteractor : MonoBehaviour, IActor
         }
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         if (playerCamera == null)
@@ -80,4 +80,5 @@ public class PlayerInteractor : MonoBehaviour, IActor
         Gizmos.DrawLine(playerCamera.transform.position,
                         playerCamera.transform.position + playerCamera.transform.forward * rayDistance);
     }
+#endif
 }
