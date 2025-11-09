@@ -42,7 +42,6 @@ namespace Character
             var dir = direction;
             SetDirOfForward(ref dir);
             agent.Move(dir * strength * unscaledDeltaTime);
-            //Debug.Log($"{strength} {direction}  {dir}");
         }
         void SetDirOfForward(ref Vector3 dir)
         {
