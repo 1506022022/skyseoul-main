@@ -995,7 +995,7 @@ MonoBehaviour:
     DecaySpeed: 2
   actions:
   - {fileID: 11400000, guid: 69b7271d2dfc5a240b1454164dba34e4, type: 2}
-  anchor: {fileID: 0}
+  anchor: {fileID: 2838831158878601764}
 --- !u!1 &7497448281904683583
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,8 +44,8 @@ public class PlayerInteractor : MonoBehaviour,IInteractor
         if (currentTarget.CanBegin(actor)) currentTarget.Begin(actor);
 
     }
-    public void Tick(IActor actor)=> currentTarget.Tick(actor, Time.deltaTime);
-    public void Cancel() => currentTarget.Cancel();
+    public void Tick(IActor actor)=> currentTarget?.Tick(actor, Time.deltaTime);
+    public void Cancel() => currentTarget?.Cancel();
 
 
 
