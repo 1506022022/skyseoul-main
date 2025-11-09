@@ -2,14 +2,14 @@ using Battle;
 using Character;
 using UnityEngine;
 
-public class PlayerInteractor : MonoBehaviour, IActor
+public class PlayerInteractor : MonoBehaviour,IInteractor
 {
     [Header("Interaction Settings")]
     [SerializeField] private float rayDistance = 5f;
     [SerializeField] private LayerMask interactMask = ~0;
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
 
-    Camera playerCamera;
+
+    Camera interactCamera;
     IInteractable currentTarget;
     RaycastHit hitInfo;
 
@@ -18,67 +18,46 @@ public class PlayerInteractor : MonoBehaviour, IActor
 
     void Awake()
     {
-        if (playerCamera == null)
-            playerCamera = Camera.main;
+        if (interactCamera == null) interactCamera = Camera.main;
+       
     }
 
-    void Update()
-    {
-        HandleInteractionRay();
-        HandleInput();
-    }
+    void Update()=> HandleInteractionRay();
+   
 
     void HandleInteractionRay()
     {
         IInteractable hitTarget = null;
 
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward,
-     out hitInfo, rayDistance, interactMask))
-        {
+        if (Physics.Raycast(interactCamera.transform.position, interactCamera.transform.forward, out hitInfo, rayDistance, interactMask))
             hitTarget = hitInfo.collider.GetComponentInParent<IInteractable>();
-        }
-
 
         if (currentTarget != hitTarget)
         {
-            if (currentTarget != null)
-                currentTarget.Cancel(this);
-
+            if (currentTarget != null) Cancel();
             currentTarget = hitTarget;
         }
     }
-
-    void HandleInput()
+    public void BeginInteract(IActor actor) 
     {
-        if (currentTarget == null) return;
+        if(currentTarget!=null)
+        if (currentTarget.CanBegin(actor)) currentTarget.Begin(actor);
 
-
-        if (Input.GetKeyDown(interactKey))
-        {
-            if (currentTarget.CanBegin(this))
-                currentTarget.Begin(this);
-        }
-
-        if (Input.GetKey(interactKey))
-        {
-            currentTarget.Tick(this, Time.deltaTime);
-        }
-
-        if (Input.GetKeyUp(interactKey))
-        {
-            currentTarget.Cancel(this);
-        }
     }
+    public void Tick(IActor actor)=> currentTarget.Tick(actor, Time.deltaTime);
+    public void Cancel() => currentTarget.Cancel();
+
+
 
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        if (playerCamera == null)
+        if (interactCamera == null)
             return;
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(playerCamera.transform.position,
-                        playerCamera.transform.position + playerCamera.transform.forward * rayDistance);
+        Gizmos.DrawLine(interactCamera.transform.position,
+                        interactCamera.transform.position + interactCamera.transform.forward * rayDistance);
     }
 #endif
 }

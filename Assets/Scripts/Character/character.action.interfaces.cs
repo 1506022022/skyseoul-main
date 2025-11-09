@@ -73,10 +73,16 @@ namespace Character
         IActor CurrentActor { get; }
         float Progress { get; }
         bool CanBegin(IActor actor);
-        void Begin(IActor actor); void Tick(IActor actor, float deltaTime); void Cancel(IActor actor);
+        void Begin(IActor actor); void Tick(IActor actor, float deltaTime); void Cancel();
 
         event Action<float> OnProgress;
         event Action OnCompleted, OnBegin, OnCancel;
+    }
+    public interface IInteractor
+    {
+        void BeginInteract(IActor actor);
+        void Tick(IActor actor);
+        void Cancel();
     }
 
 }

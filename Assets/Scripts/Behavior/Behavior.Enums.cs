@@ -25,6 +25,14 @@ public enum BasicStatus
     IsAiring
 }
 [BlackboardEnum]
+public enum InteractState
+{
+    None,
+    Begin,
+    Tick,
+    Cancel
+}
+[BlackboardEnum]
 public enum RobotSubStatus
 {
     Sleep=0,

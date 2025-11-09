@@ -27,8 +27,8 @@ public class InteractComponent : MonoBehaviour, IInteractable
 
     protected virtual void Awake()
     {
-        if (anchor == null)
-            anchor = transform;
+        if (anchor == null) anchor = transform;
+
     }
 
     protected virtual void Update()
@@ -38,8 +38,9 @@ public class InteractComponent : MonoBehaviour, IInteractable
 
     public virtual bool CanBegin(IActor actor)
     {
-        if (actor is not Component comp) return false;
-        return Vector3.Distance(anchor.position, comp.transform.position) <= profile.InteractRange;
+        if (actor is not IGameObject obj || obj.transform == null)
+            return false;
+        return Vector3.Distance(anchor.position, obj.transform.position) <= profile.InteractRange;
     }
 
 
@@ -55,16 +56,21 @@ public class InteractComponent : MonoBehaviour, IInteractable
    
     public virtual void Tick(IActor actor, float deltaTime)
     {
-        if (!state.IsActive) return;
+        if (!state.IsActive)
+        {
+            Begin(actor);
+            return;
+        }
 
         state.Tick(deltaTime, OnProgress);
-            
-        if (state.IsCompleted(profile.HoldDuration)) CompleteInteraction(actor);
 
+        if (state.IsCompleted(profile.HoldDuration)) CompleteInteraction(actor);
+            
     }
-    public virtual void Cancel(IActor actor)
+    public virtual void Cancel()
     {
         if (!state.IsActive) return;
+        currentActor = null;
         state.Cancel();
         OnCancel?.Invoke();
     }
