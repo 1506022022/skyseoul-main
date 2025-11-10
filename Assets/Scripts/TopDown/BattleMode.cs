@@ -31,7 +31,7 @@ namespace TopDown
 
         public BattleMode()
         {
-            battle.OnDead += OnDeadCharacter;
+            battle.OnDead += OnDeadActor;
             CreateTypeToEvent = Resources.Load<StringPair>(nameof(CreateTypeToEvent));
 
             Container.Bind<FieldData>().To<FieldIniter>().AsSingle();
@@ -101,7 +101,7 @@ namespace TopDown
 
         async void OnClearBattle()
         {
-            if (playerCharacter is IControlable controlable && playerCharacter is IActor actor)
+            if (playerCharacter is IControlable controlable and IActor actor)
             { }
 
             await UniTask.WaitForSeconds(3f);
@@ -170,7 +170,7 @@ namespace TopDown
         void OnBirthProp(IProp prop)
         {
         }
-        void OnDeadCharacter(IActor actor)
+        void OnDeadActor(IActor actor)
         {
             if (actor is IPlayable playable) OnDeadPlayableCharacter(playable);
             else if (actor is IEnemy enemy) OnDeadEnemy(enemy);
@@ -205,6 +205,10 @@ namespace TopDown
                 float delay = actor is IDeathable deathable ? Mathf.Max(3, deathable.DeathDuration) : 0f;
                 GameObject.Destroy(tActor.transform.gameObject, delay);
             }
+        }
+        void OnInteraction(IActor initiator, IActor target)
+        {
+
         }
     }
 
@@ -289,7 +293,6 @@ namespace TopDown
             var field = GameObject.Instantiate(fieldPrefabDB.LoadedResources[fieldData.Name]);
             field.transform.position = fieldData.Position;
             field.transform.eulerAngles = fieldData.Rotation;
-            field.Size = fieldData.Size;
             var box = field.gameObject.AddComponent<BoxCollider>();
             box.center = fieldData.Size / 2;
             box.size = fieldData.Size;

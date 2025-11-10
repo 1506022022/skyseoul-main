@@ -17,12 +17,12 @@ namespace Battle
 
     public static class InteractionSystem
     {
-        private readonly static List<IInteraction> _interactions = new();
+        private readonly static List<IInteraction> interactions = new();
 
         public static bool TryGetInteraction(Transform actor, out IInteraction interaction)
         {
             interaction = null;
-            foreach (var item in _interactions)
+            foreach (var item in interactions)
             {
                 if (!item.Range.Contains(actor.position))
                 {
@@ -35,11 +35,11 @@ namespace Battle
         }
         public static void AddInteraction(IInteraction interaction)
         {
-            _interactions.Add(interaction);
+            interactions.Add(interaction);
         }
         public static void RemoveInteraction(IInteraction interaction)
         {
-            _interactions.Remove(interaction);
+            interactions.Remove(interaction);
         }
     }
 

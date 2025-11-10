@@ -55,6 +55,7 @@ namespace Character
             animator.SetBool("IsMove", true);
             (walk as IStrength)?.SetStrength(strength);
             (walk as IDirection)?.SetDirection(direction);
+
             OnMove(direction, strength);
         }
         protected virtual void OnMove(Vector3 direction, float strength) { }

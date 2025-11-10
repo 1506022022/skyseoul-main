@@ -7,4 +7,9 @@ public class Log : ScriptableObject
     {
         Debug.Log(message);
     }
+
+    public static void PrintLog(Collider coll)
+    {
+        Debug.Log(coll.name);
+    }
 }
