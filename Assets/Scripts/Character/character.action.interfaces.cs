@@ -55,10 +55,10 @@ namespace Character
         void Release();
     }
 
-    public interface IRetriever 
+    public interface IRetriever
     {
         float Duration { get; }
-        Vector3 Offset { get;  }
+        Vector3 Offset { get; }
         Vector3 Rotation { get; }
         void Retrieve(Transform actor);
     }
@@ -66,7 +66,7 @@ namespace Character
     {
         void Explosion();
     }
-    public interface IHackable { IActor Owner { get; } void Wake(IActor actor); bool IsWake { get; } float WakeDuration { get;} }
+    public interface IHackable { IActor Owner { get; } void Wake(IActor actor); bool IsWake { get; } float WakeDuration { get; } }
 
     public interface IInteractable
     {
