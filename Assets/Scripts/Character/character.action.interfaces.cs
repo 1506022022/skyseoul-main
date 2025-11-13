@@ -54,7 +54,7 @@ namespace Character
         void Alert();
         void Release();
     }
-
+   
     public interface IRetriever
     {
         float Duration { get; }
@@ -84,5 +84,5 @@ namespace Character
         void Tick(IActor actor);
         void Cancel();
     }
-
+    public interface IParry { }
 }

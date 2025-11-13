@@ -1,0 +1,70 @@
+{
+    "Items": [
+        {
+            "ID": 0,
+            "parentID": -1,
+            "PrefabAddress": "Lighting",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 1
+        },
+        {
+            "ID": 1,
+            "parentID": -1,
+            "PrefabAddress": "AnimalGroup",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 2
+        },
+        {
+            "ID": 2,
+            "parentID": -1,
+            "PrefabAddress": "Area",
+            "Position": {
+                "x": -27.19883918762207,
+                "y": 1.3764400482177735,
+                "z": 13.895500183105469
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 3
+        }
+    ]
+}
